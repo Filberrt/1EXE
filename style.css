@@ -1671,8 +1671,8 @@ ol, ul { list-style: none; }
 
   /* Trust */
   .trust-grid { grid-template-columns: 1fr; }
-  .trust-card--wide { flex-direction: column; }
-  .trust-visual { width: 72px; height: 72px; align-self: flex-end; }
+  .trust-card--wide { grid-column: 1; flex-direction: column; }
+  .trust-visual { display: none; }
 
   /* FAQ */
   .faq-layout { grid-template-columns: 1fr; gap: 32px; }
