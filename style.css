@@ -44,7 +44,7 @@
 
 /* ─── RESET ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: var(--font);
   background: var(--bg);
@@ -225,6 +225,12 @@ ol, ul { list-style: none; }
   padding: 12px 0;
   border-bottom: 1px solid var(--border);
 }
+.header.mobile-open {
+  background: rgba(0,0,0,0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
 .header .container {
   display: flex;
   align-items: center;
@@ -303,7 +309,7 @@ ol, ul { list-style: none; }
   overflow: hidden;
   transition: max-height 0.35s var(--ease);
 }
-.mobile-nav.open { max-height: 400px; }
+.mobile-nav.open { max-height: 640px; }
 .mobile-nav-link {
   font-size: 16px;
   font-weight: 500;

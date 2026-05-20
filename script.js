@@ -16,19 +16,24 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ─── BURGER / MOBILE NAV ─── */
   const burger    = document.getElementById('burger');
   const mobileNav = document.getElementById('mobile-nav');
+  const siteHeader = document.querySelector('.header');
+
+  const closeMobileNav = () => {
+    mobileNav.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    siteHeader.classList.remove('mobile-open');
+  };
 
   burger.addEventListener('click', () => {
     const open = mobileNav.classList.toggle('open');
     burger.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', String(open));
+    siteHeader.classList.toggle('mobile-open', open);
   });
 
-  mobileNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileNav.classList.remove('open');
-      burger.classList.remove('open');
-      burger.setAttribute('aria-expanded', 'false');
-    });
+  mobileNav.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('click', closeMobileNav);
   });
 
 
