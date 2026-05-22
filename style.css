@@ -1605,6 +1605,7 @@ ol, ul { list-style: none; }
    UTILITY
 ══════════════════════════════════════════════════════════ */
 .hide-mobile { display: inline; }
+.mobile-br { display: none; }
 
 /* ══════════════════════════════════════════════════════════
    RESPONSIVE
@@ -1643,6 +1644,7 @@ ol, ul { list-style: none; }
   .hero-chips { gap: 5px; }
   .hero-chip { font-size: 11px; padding: 5px 10px; }
   .hide-mobile { display: none; }
+  .mobile-br { display: inline; }
 
   /* Widget */
   .widget-panels { flex-direction: column; }
