@@ -1640,7 +1640,7 @@ ol, ul { list-style: none; }
   /* Hero */
   .hero { padding: 88px 0 60px; min-height: auto; }
   .hero-panel { padding: 32px 20px 28px; min-height: 200px; }
-  .hero-title { font-size: clamp(24px, 7vw, 36px); }
+  .hero-title { font-size: clamp(18px, 5.5vw, 26px); }
   .hero-chips { gap: 5px; }
   .hero-chip { font-size: 11px; padding: 5px 10px; }
   .hide-mobile { display: none; }
