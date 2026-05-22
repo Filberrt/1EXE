@@ -1628,7 +1628,7 @@ ol, ul { list-style: none; }
   .nav { display: none; }
   .btn-tg { display: none; }
   .btn-call { display: none; }
-  .burger { display: flex; width: 58px; height: 58px; padding: 12px; }
+  .burger { display: flex; width: 46px; height: 46px; padding: 10px; }
   .logo-text { font-size: 40px; }
 
   /* How loyalty */
