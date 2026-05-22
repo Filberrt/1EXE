@@ -6,6 +6,7 @@ NEW_CSS = """
       padding: 130px 0 80px;
       background: #000;
       position: relative;
+      overflow: hidden;
     }
     .city-hero .hero-glow { z-index: 0; }
     .city-hero .hero-grid  { z-index: 0; }
@@ -245,8 +246,10 @@ CITY_DATA = {
 def make_hero(data, url_2gis, url_yandex):
     return '\n'.join([
         '    <section class="city-hero">',
-        '      <div class="hero-glow"></div>',
-        '      <div class="hero-grid"></div>',
+        '      <div class="hero-bg">',
+        '        <div class="hero-glow"></div>',
+        '        <div class="hero-grid"></div>',
+        '      </div>',
         '      <div class="container">',
         '        <a href="index.html#offices" class="seg-back-link" style="position:relative;z-index:1;">← Все офисы</a>',
         '        <div class="city-hero-block" style="margin-top: 20px;">',
