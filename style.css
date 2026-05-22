@@ -1628,7 +1628,8 @@ ol, ul { list-style: none; }
   .nav { display: none; }
   .btn-tg { display: none; }
   .btn-call { display: none; }
-  .burger { display: flex; }
+  .burger { display: flex; width: 56px; height: 56px; padding: 12px; }
+  .logo-text { font-size: 32px; }
 
   /* How loyalty */
   .loyalty-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
