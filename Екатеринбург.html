@@ -19,24 +19,24 @@
       background: #000;
       position: relative;
     }
-    /* черная «челка» сверху + синий glow под ней — в одном слое */
+    /* синий glow как на главной */
     .city-hero::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.75) 14%, transparent 32%),
-        radial-gradient(ellipse at 50% 20%, rgba(91,138,255,0.20) 0%, transparent 60%);
+      top: -10%; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(91,138,255,0.12) 0%, transparent 65%);
       pointer-events: none; z-index: 0;
     }
-    /* dot grid */
+    /* dot grid как на главной */
     .city-hero::after {
       content: '';
       position: absolute; inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.10) 1px, transparent 1px);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.13) 1px, transparent 1px);
       background-size: 28px 28px;
-      mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 60%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 60%, transparent 100%);
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
       pointer-events: none; z-index: 0;
     }
     /* ВСЁ в одном блоке */
@@ -242,7 +242,7 @@
   </header>
 
   <main>
-                    <section class="city-hero">
+                        <section class="city-hero">
       <div class="container">
         <a href="index.html#offices" class="seg-back-link" style="position:relative;z-index:1;">← Все офисы</a>
         <div class="city-hero-block" style="margin-top: 20px;">
@@ -277,7 +277,7 @@
       </div>
     </section>
 
-                    <section class="city-steps">
+                        <section class="city-steps">
       <div class="container">
         <div class="city-steps-head">
           <p class="city-steps-kicker">Фотоинструкция</p>
