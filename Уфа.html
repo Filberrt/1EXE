@@ -7,40 +7,277 @@
   <meta name="geo.region" content="RU-BA" />
   <meta name="geo.placename" content="Уфа" />
   <title>Офис Atom Exchange в Уфе — Как пройти</title>
-  <meta name="description" content="Офис Atom Exchange в Уфе: Верхнеторговая площадь, 6, 1 этаж, офис 2.5. Схема прохода, карты, режим работы." />
+  <meta name="description" content="Офис Atom Exchange в Уфе: Верхнеторговая площадь, 6, 1 этаж, офис 2.5." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=2" />
+  <style>
+    .city-hero {
+      position: relative;
+      min-height: 60svh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      overflow: hidden;
+    }
+    .city-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.10) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+    }
+    .city-hero-glow {
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(91,138,255,0.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .city-hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      max-width: 700px;
+    }
+    .city-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(34,197,94,0.25);
+      background: rgba(34,197,94,0.08);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(240,240,240,0.8);
+    }
+    .city-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34,197,94,0.8);
+    }
+    .city-h1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 800;
+      color: #f0f0f0;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin: 0;
+    }
+    .city-h1 span { color: #5b8aff; }
+    .city-address {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 20px 24px;
+      background: rgba(91,138,255,0.07);
+      border: 1px solid rgba(91,138,255,0.20);
+      border-radius: 16px;
+    }
+    .city-address-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(91,138,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: #5b8aff;
+    }
+    .city-address-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(240,240,240,0.4);
+      margin-bottom: 4px;
+    }
+    .city-address-text {
+      font-family: 'Manrope', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #f0f0f0;
+      line-height: 1.4;
+    }
+    .city-map-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .city-map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .city-map-btn--primary {
+      background: #5b8aff;
+      color: #fff;
+    }
+    .city-map-btn--primary:hover { background: #7aa6ff; }
+    .city-map-btn--outline {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(240,240,240,0.8);
+    }
+    .city-map-btn--outline:hover { background: rgba(255,255,255,0.10); }
+
+    /* Steps */
+    .city-steps {
+      padding: 80px 0;
+    }
+    .city-steps-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 800;
+      color: #f0f0f0;
+      margin: 0 0 8px;
+    }
+    .city-steps-sub {
+      font-size: 15px;
+      color: rgba(240,240,240,0.5);
+      margin: 0 0 40px;
+    }
+    .city-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .city-step-card {
+      position: relative;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #0f0f0f;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .city-step-card:hover {
+      border-color: rgba(91,138,255,0.30);
+      transform: translateY(-4px);
+    }
+    .city-step-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #5b8aff, #9b87ff);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .city-step-card:hover::before { opacity: 1; }
+    .city-step-body {
+      padding: 28px 24px;
+    }
+    .city-step-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .city-step-num {
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(240,240,240,0.35);
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+    }
+    .city-step-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(240,240,240,0.5);
+      padding: 4px 10px;
+      border: 1px solid rgba(91,138,255,0.20);
+      border-radius: 100px;
+      background: rgba(91,138,255,0.06);
+    }
+    .city-step-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #f0f0f0;
+      margin: 0 0 8px;
+      line-height: 1.3;
+    }
+    .city-step-text {
+      font-size: 14px;
+      color: rgba(240,240,240,0.55);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* CTA */
+    .city-cta {
+      background: rgba(91,138,255,0.06);
+      border: 1px solid rgba(91,138,255,0.15);
+      border-radius: 24px;
+      padding: 52px 48px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .city-cta-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 800;
+      color: #f0f0f0;
+      margin: 0 0 10px;
+    }
+    .city-cta-sub {
+      font-size: 15px;
+      color: rgba(240,240,240,0.5);
+      margin: 0 0 32px;
+    }
+    .city-cta-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .city-steps-grid { grid-template-columns: 1fr; }
+      .city-cta { padding: 36px 24px; }
+      .city-map-btns { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
 
   <header class="header" id="site-header">
     <div class="container">
-      <a href="index.html" class="logo" aria-label="Atom Exchange — главная">
-        <span class="logo-text">Atom<span class="logo-accent">EX</span></span>
-      </a>
-      <nav class="nav" aria-label="Основная навигация">
+      <a href="index.html" class="logo"><span class="logo-text">Atom<span class="logo-accent">EX</span></span></a>
+      <nav class="nav">
         <a href="index.html#exchange" class="nav-link">Обменять</a>
         <a href="index.html#how-it-works" class="nav-link">Как работает</a>
         <a href="index.html#offices" class="nav-link">Офисы</a>
         <a href="index.html#faq" class="nav-link">FAQ</a>
       </nav>
       <div class="header-actions">
-        <button class="btn-call call-trigger" aria-label="Позвонить менеджеру">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91A16 16 0 0015.1 17.9l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 18.92z"/></svg>
-          Позвонить
-        </button>
-        <a href="https://t.me/danila_exchange" class="btn-tg" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
-          Написать
-        </a>
-        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="btn-call call-trigger"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91A16 16 0 0015.1 17.9l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 18.92z"/></svg> Позвонить</button>
+        <a href="https://t.me/danila_exchange" class="btn-tg" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg> Написать</a>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильное меню">
+    <nav class="mobile-nav" id="mobile-nav">
       <a href="index.html#exchange" class="mobile-nav-link">Обменять</a>
       <a href="index.html#how-it-works" class="mobile-nav-link">Как работает</a>
       <a href="index.html#offices" class="mobile-nav-link">Офисы</a>
@@ -51,23 +288,29 @@
   </header>
 
   <main>
-    <section class="seg-hero">
+    <section class="city-hero">
+      <div class="city-hero-glow"></div>
       <div class="container">
         <a href="index.html#offices" class="seg-back-link">← Все офисы</a>
-        <div class="seg-hero-content">
-          <div class="seg-hero-badge">
-            <span class="dot dot--green"></span>
-            Пн–Сб: 10:00–19:00
+        <div class="city-hero-inner" style="margin-top: 24px;">
+          <div class="city-tag"><span class="city-dot"></span> Пн–Сб: 10:00–19:00 МСК</div>
+          <h1 class="city-h1">Офис в <span>Уфе</span></h1>
+          <div class="city-address">
+            <div class="city-address-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="city-address-label">Адрес</div>
+              <div class="city-address-text">Верхнеторговая площадь, 6<br>1 этаж, офис 2.5</div>
+            </div>
           </div>
-          <h1 class="hero-title">Офис в Уфе</h1>
-          <p class="seg-hero-sub">Верхнеторговая площадь, 6<br>1 этаж, офис 2.5</p>
-          <div class="seg-hero-actions">
-            <a href="https://2gis.ru/ufa/firm/70000001023823316?m=55.945343%2C54.724119%2F16" class="btn-primary" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 22 2l-9 19-2-8-8-2Z"/></svg>
+          <div class="city-map-btns">
+            <a href="https://2gis.ru/ufa/firm/70000001023823316?m=55.945343%2C54.724119%2F16" class="city-map-btn city-map-btn--primary" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 22 2l-9 19-2-8-8-2Z"/></svg>
               Открыть в 2ГИС
             </a>
-            <a href="https://yandex.ru/maps/172/ufa/house/verkhnetorgovaya_ploshchad_6/YUwYfwNlSkAGQFtufXtzdX1hZA==/?indoorLevel=1&ll=55.945351%2C54.724120&z=16.78" class="btn-outline" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 4.5-5-2.5L3 5v17l6.5-3 5 2.5 6.5-3V2l-6.5 2.5Z"/><path d="M9.5 2v17"/><path d="M14.5 4.5v17"/></svg>
+            <a href="https://yandex.ru/maps/172/ufa/house/verkhnetorgovaya_ploshchad_6/YUwYfwNlSkAGQFtufXtzdX1hZA==/?indoorLevel=1&ll=55.945351%2C54.724120&z=16.78" class="city-map-btn city-map-btn--outline" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 4.5-5-2.5L3 5v17l6.5-3 5 2.5 6.5-3V2l-6.5 2.5Z"/><path d="M9.5 2v17"/><path d="M14.5 4.5v17"/></svg>
               Яндекс Карты
             </a>
           </div>
@@ -75,48 +318,55 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="city-steps">
       <div class="container">
-        <h2 class="section-title">Как пройти</h2>
-        <p class="section-sub">Бизнес-центр на Верхнеторговой площади, вход с главного фасада</p>
-        <div class="steps-list" style="grid-template-columns: repeat(3,1fr); margin-top: 40px;">
-          <div class="step-item">
-            <div class="step-num">01</div>
-            <div class="step-body">
-              <h3 class="step-title">Найдите бизнес-центр</h3>
-              <p class="step-text">Верхнеторговая площадь, 6 — здание в центре города. Вход с главного фасада, стеклянные двери.</p>
+        <h2 class="city-steps-title">Как пройти</h2>
+        <p class="city-steps-sub">Бизнес-центр на Верхнеторговой площади — вход с главного фасада</p>
+        <div class="city-steps-grid">
+          <div class="city-step-card">
+            <div class="city-step-body">
+              <div class="city-step-top">
+                <span class="city-step-num">Шаг 01</span>
+                <span class="city-step-tag">Вход</span>
+              </div>
+              <h3 class="city-step-title">Найдите бизнес-центр</h3>
+              <p class="city-step-text">Верхнеторговая площадь, 6 — здание в центре города. Вход с главного фасада, стеклянные двери.</p>
             </div>
           </div>
-          <div class="step-item">
-            <div class="step-num">02</div>
-            <div class="step-body">
-              <h3 class="step-title">Пройдите на ресепшен</h3>
-              <p class="step-text">Войдите внутрь, пройдите к стойке ресепшен. Скажите, что вы в офис 2.5.</p>
+          <div class="city-step-card">
+            <div class="city-step-body">
+              <div class="city-step-top">
+                <span class="city-step-num">Шаг 02</span>
+                <span class="city-step-tag">Ресепшен</span>
+              </div>
+              <h3 class="city-step-title">Пройдите на ресепшен</h3>
+              <p class="city-step-text">Войдите внутрь, пройдите к стойке ресепшен. Скажите, что вы в офис 2.5.</p>
             </div>
           </div>
-          <div class="step-item">
-            <div class="step-num">03</div>
-            <div class="step-body">
-              <h3 class="step-title">Офис 2.5 — 1 этаж</h3>
-              <p class="step-text">Офис находится на 1 этаже. Вывеска 1Ex на двери. Менеджер встретит вас.</p>
+          <div class="city-step-card">
+            <div class="city-step-body">
+              <div class="city-step-top">
+                <span class="city-step-num">Шаг 03</span>
+                <span class="city-step-tag">1 этаж</span>
+              </div>
+              <h3 class="city-step-title">Офис 2.5</h3>
+              <p class="city-step-text">Офис на 1 этаже, вывеска 1Ex на двери. Менеджер встретит вас.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" style="padding-top: 0;">
-      <div class="container">
-        <div class="cta-inner" style="text-align:center;">
-          <h2 class="cta-title">Готовы к сделке?</h2>
-          <p class="cta-sub">Свяжитесь с менеджером для согласования курса и времени визита</p>
-          <div class="cta-actions" style="justify-content:center; margin-top: 28px;">
-            <button class="btn-primary cta-btn call-trigger">Позвонить</button>
-            <a href="https://t.me/danila_exchange" class="btn-outline cta-btn" target="_blank" rel="noopener">Написать в Telegram</a>
-          </div>
+    <div class="container">
+      <div class="city-cta">
+        <h2 class="city-cta-title">Готовы к сделке?</h2>
+        <p class="city-cta-sub">Согласуйте курс и время визита с менеджером заранее</p>
+        <div class="city-cta-btns">
+          <button class="btn-primary call-trigger" style="height:52px; padding: 0 32px; font-size:15px;">Позвонить</button>
+          <a href="https://t.me/danila_exchange" class="btn-outline" style="height:52px; padding: 0 28px; font-size:15px;" target="_blank" rel="noopener">Написать в Telegram</a>
         </div>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="footer">
@@ -124,7 +374,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo"><span class="logo-text">Atom<span class="logo-accent">EX</span></span></a>
-          <p class="footer-desc">Профессиональный обменник с VIP-офисами в Уфе, Казани и Екатеринбурге.</p>
+          <p class="footer-desc">VIP-офисы в Уфе, Казани и Екатеринбурге.</p>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Офисы</div>
@@ -138,18 +388,14 @@
           <a href="https://t.me/danila_exchange" class="footer-link" target="_blank">Telegram</a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2025 Atom Exchange</p>
-      </div>
+      <div class="footer-bottom"><p class="footer-copy">© 2025 Atom Exchange</p></div>
     </div>
   </footer>
 
-  <div class="call-modal" id="call-modal" role="dialog" aria-modal="true" aria-label="Контакты менеджера">
+  <div class="call-modal" id="call-modal" role="dialog" aria-modal="true">
     <div class="call-modal-backdrop"></div>
     <div class="call-modal-card">
-      <button class="call-modal-x" id="call-modal-x" aria-label="Закрыть">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
+      <button class="call-modal-x" id="call-modal-x"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
       <div class="call-modal-avatar">A</div>
       <div class="call-modal-name">Данила</div>
       <div class="call-modal-role">Менеджер · Atom Exchange</div>
@@ -158,7 +404,6 @@
       <a href="https://t.me/danila_exchange" class="btn-outline call-modal-tg" target="_blank">Написать в Telegram</a>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
