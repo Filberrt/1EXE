@@ -419,10 +419,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = statusEl.querySelector('.hours-text');
     if (isOpen) {
       dot.style.background = '#22c55e';
-      text.textContent = 'Открыто · Пн–Сб: 10:00–19:00';
+      text.textContent = 'Открыто · Пн–Сб: 10:00–19:00 МСК';
     } else {
       dot.style.background = '#ef4444';
-      text.textContent = 'Закрыто · Открываемся в 10:00';
+      text.textContent = 'Закрыто · Открываемся в 10:00 МСК';
     }
   });
 
