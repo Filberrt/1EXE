@@ -202,7 +202,7 @@ NEW_CSS = """
 
     /* MOBILE */
     @media (max-width: 700px) {
-      .city-hero { padding: 100px 0 52px; }
+      .city-hero { padding: 130px 0 52px; }
       .city-hero-block { padding: 24px 20px; max-width: 100%; border-radius: 20px; }
       .city-h1 { letter-spacing: -1px; }
       .city-lead { white-space: normal; font-size: 13px; }
