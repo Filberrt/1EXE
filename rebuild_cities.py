@@ -3,9 +3,7 @@ import re
 NEW_CSS = """
     /* Шапка всегда тёмная на страницах городов */
     .header {
-      background: rgba(0,0,0,0.95) !important;
-      backdrop-filter: blur(20px) !important;
-      -webkit-backdrop-filter: blur(20px) !important;
+      background: rgba(0,0,0,0.97) !important;
       border-bottom: 1px solid rgba(255,255,255,0.06) !important;
     }
 
