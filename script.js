@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── HEADER: scroll effect ─── */
-  const header = document.getElementById('header');
+  const header = document.getElementById('header') || document.getElementById('site-header');
   const onScroll = () => {
     header.classList.toggle('scrolled', window.scrollY > 40);
   };
