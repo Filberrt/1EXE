@@ -229,7 +229,7 @@ HOURS_SCRIPT = """  <script>
         dot.style.background = isOpen ? '#22c55e' : '#ef4444';
         dot.style.boxShadow = isOpen ? '0 0 8px rgba(34,197,94,0.8)' : '0 0 8px rgba(239,68,68,0.8)';
       }
-      if (text) text.textContent = isOpen ? 'Открыто · Пн–Сб 10:00–19:00' : 'Закрыто · Открываемся в 10:00';
+      if (text) text.textContent = isOpen ? 'Открыто · Пн–Сб 10:00–19:00 МСК' : 'Закрыто · Открываемся в 10:00 МСК';
     })();
   </script>
 """
