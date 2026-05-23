@@ -8,8 +8,32 @@ NEW_CSS = """
       position: relative;
       overflow: hidden;
     }
-    .city-hero .hero-glow { z-index: 0; }
-    .city-hero .hero-grid  { z-index: 0; }
+    /* ── Челка: glow + dot grid, точная копия главной страницы ── */
+    .city-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .city-hero-glow {
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(91,138,255,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .city-hero-dots {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+      pointer-events: none;
+    }
     /* ВСЁ в одном блоке */
     .city-hero-block {
       position: relative; z-index: 1;
@@ -246,9 +270,9 @@ CITY_DATA = {
 def make_hero(data, url_2gis, url_yandex):
     return '\n'.join([
         '    <section class="city-hero">',
-        '      <div class="hero-bg">',
-        '        <div class="hero-glow"></div>',
-        '        <div class="hero-grid"></div>',
+        '      <div class="city-hero-bg">',
+        '        <div class="city-hero-glow"></div>',
+        '        <div class="city-hero-dots"></div>',
         '      </div>',
         '      <div class="container">',
         '        <a href="index.html#offices" class="seg-back-link" style="position:relative;z-index:1;">← Все офисы</a>',
