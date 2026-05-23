@@ -1,6 +1,14 @@
 import re
 
 NEW_CSS = """
+    /* Шапка всегда тёмная на страницах городов */
+    .header {
+      background: rgba(0,0,0,0.95) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+    }
+
     /* HERO */
     .city-hero {
       padding: 130px 0 80px;
@@ -17,18 +25,18 @@ NEW_CSS = """
     }
     .city-hero-glow {
       position: absolute;
-      top: -10%;
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
       width: 900px;
       height: 600px;
-      background: radial-gradient(ellipse at center, rgba(91,138,255,0.18) 0%, transparent 65%);
+      background: radial-gradient(ellipse at center top, rgba(91,138,255,0.35) 0%, transparent 65%);
       pointer-events: none;
     }
     .city-hero-dots {
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.22) 1px, transparent 1px);
       background-size: 28px 28px;
       mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
       -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
