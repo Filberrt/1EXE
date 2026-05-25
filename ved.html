@@ -54,13 +54,11 @@
   <header class="header" id="header">
     <div class="container">
       <a href="index.html" class="logo" aria-label="Atom Exchange — на главную">
-        <span class="logo-text">Atom<span class="logo-accent">EX</span></span>
+        <img src="Logo_Atom.jpg" alt="Atom Exchange" class="logo-img">
       </a>
       <nav class="nav" aria-label="Основная навигация">
         <a href="index.html#exchange" class="nav-link">Обменять</a>
-        <a href="index.html#how-it-works" class="nav-link">Как работает</a>
         <a href="index.html#offices" class="nav-link">Офисы</a>
-        <a href="index.html#faq" class="nav-link">FAQ</a>
         <div class="nav-dropdown" id="nav-dropdown">
           <button class="nav-link nav-dropdown-btn" id="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
             Клиентам
@@ -249,91 +247,6 @@
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="section how" id="how-it-works" aria-labelledby="how-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title" id="how-title">Как проходит операция</h2>
-          <p class="section-sub">От первого контакта до зачисления USDT на кошелёк поставщика</p>
-        </div>
-        <ol class="steps-list">
-          <li class="step-item">
-            <div class="step-num">01</div>
-            <div class="step-body">
-              <h3 class="step-title">Свяжитесь с менеджером</h3>
-              <p class="step-text">Напишите или позвоните — укажите сумму в рублях или USDT, страну поставщика и примерные сроки. Менеджер рассчитает условия и подтвердит готовность.</p>
-            </div>
-            <div class="step-connector" aria-hidden="true"></div>
-          </li>
-          <li class="step-item">
-            <div class="step-num">02</div>
-            <div class="step-body">
-              <h3 class="step-title">Фиксируем курс — приезжаете в офис</h3>
-              <p class="step-text">Курс фиксируется на 3 часа. Приезжаете в офис с рублями. Проводим AML-проверку, оформляем ДКП. Всё в рамках одного визита.</p>
-            </div>
-            <div class="step-connector" aria-hidden="true"></div>
-          </li>
-          <li class="step-item">
-            <div class="step-num">03</div>
-            <div class="step-body">
-              <h3 class="step-title">Поставщик получает USDT</h3>
-              <p class="step-text">Отправляем USDT на кошелёк вашего зарубежного партнёра. Транзакция занимает несколько минут. Подтверждение — у вас и у получателя.</p>
-            </div>
-          </li>
-        </ol>
-        <div class="how-cta">
-          <a href="https://t.me/danila_exchange" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a>
-          <button class="btn-outline call-trigger">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91A16 16 0 0015.1 17.9l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 18.92z"/></svg>
-            Позвонить
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section faq-section" id="faq" aria-labelledby="faq-title">
-      <div class="container">
-        <div class="faq-layout">
-          <div class="faq-left">
-            <h2 class="section-title" id="faq-title">Частые вопросы</h2>
-            <p class="section-sub">Не нашли ответа? Пишите напрямую.</p>
-            <div class="faq-cta-group">
-              <a href="https://t.me/danila_exchange" class="btn-primary faq-cta" target="_blank" rel="noopener">Написать вопрос</a>
-              <button class="btn-outline faq-cta-call call-trigger">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91A16 16 0 0015.1 17.9l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 18.92z"/></svg>
-                Позвонить
-              </button>
-            </div>
-          </div>
-          <div class="faq-right">
-            <div class="faq-list" role="list">
-              <div class="faq-item" role="listitem">
-                <button class="faq-q" aria-expanded="false">Есть ли ограничения по сумме для ВЭД-операций?<svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-                <div class="faq-a"><div class="faq-a-inner"><p>Минимум — 500 USDT или эквивалент. Максимум обсуждается индивидуально. Для крупных объёмов рекомендуем написать заранее — нужно время на резервирование.</p></div></div>
-              </div>
-              <div class="faq-item" role="listitem">
-                <button class="faq-q" aria-expanded="false">Какие документы я получу на руки?<svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-                <div class="faq-a"><div class="faq-a-inner"><p>Договор купли-продажи (ДКП) с фиксацией суммы, курса и сторон. Это полноценный документ, подтверждающий операцию. Для бухгалтерии — уточните у вашего бухгалтера соответствие вашей учётной политике.</p></div></div>
-              </div>
-              <div class="faq-item" role="listitem">
-                <button class="faq-q" aria-expanded="false">В какие страны можно отправить USDT?<svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-                <div class="faq-a"><div class="faq-a-inner"><p>В любую страну, где получатель может принять USDT (TRC-20 или ERC-20). Ограничений по географии со стороны Atom Exchange нет — мы отправляем на кошелёк, а не через банк.</p></div></div>
-              </div>
-              <div class="faq-item" role="listitem">
-                <button class="faq-q" aria-expanded="false">Как часто можно проводить операции?<svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-                <div class="faq-a"><div class="faq-a-inner"><p>Регулярные клиенты работают еженедельно и ежемесячно. Для постоянных объёмов согласовываем индивидуальные условия и приоритетное обслуживание.</p></div></div>
-              </div>
-              <div class="faq-item" role="listitem">
-                <button class="faq-q" aria-expanded="false">Что такое AML-проверка и зачем она нужна?<svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-                <div class="faq-a"><div class="faq-a-inner"><p>AML (Anti-Money Laundering) — проверка криптовалюты на связь с санкционными адресами или незаконной деятельностью. Защищает вас: если вы принимаете «грязные» монеты, это создаёт риски для вашего бизнеса и банковских счетов.</p></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- FINAL CTA -->
     <section class="cta-section" aria-labelledby="cta-title">
       <div class="container">
@@ -369,7 +282,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo footer-logo"><span class="logo-text">Atom<span class="logo-accent">EX</span></span></a>
+          <a href="index.html" class="logo footer-logo"><img src="Logo_Atom.jpg" alt="Atom Exchange" class="logo-img"></a>
           <p class="footer-desc">Банковский подход к операциям с криптовалютой. Офисы VIP-уровня в Уфе, Казани и Екатеринбурге.</p>
           <div class="footer-socials">
             <a href="https://t.me/danila_exchange" class="footer-social" target="_blank" rel="noopener" aria-label="Telegram">
@@ -383,9 +296,7 @@
         <nav class="footer-nav" aria-label="Навигация">
           <h3 class="footer-nav-title">Навигация</h3>
           <a href="index.html" class="footer-link">Главная</a>
-          <a href="index.html#how-it-works" class="footer-link">Как работает</a>
           <a href="index.html#offices" class="footer-link">Офисы</a>
-          <a href="index.html#faq" class="footer-link">FAQ</a>
         </nav>
         <nav class="footer-nav" aria-label="Клиентам">
           <h3 class="footer-nav-title">Клиентам</h3>

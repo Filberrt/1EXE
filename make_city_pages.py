@@ -123,12 +123,12 @@ def make_gallery_html(photo_paths, city_name, address):
       <div class="container">
         <p class="sub-kicker">Фото офиса</p>
         <h2 class="sub-big-title">Наш офис</h2>
-        <div class="gallery-grid">
-{imgs}
-        </div>
         <div class="gallery-address">
           {pin_svg}
           <strong>{city_name}</strong> · {address}
+        </div>
+        <div class="gallery-grid">
+{imgs}
         </div>
       </div>
     </section>"""
@@ -321,6 +321,20 @@ for filename, c in CITIES.items():
     new_sections = gallery_html + steps_html + '\n'
     if INJECT_BEFORE in html:
         html = html.replace(INJECT_BEFORE, new_sections + '\n' + INJECT_BEFORE, 1)
+
+    # Remove offices section from subdomain pages (redundant on city-specific pages)
+    html = re.sub(
+        r'    <!-- ═══════════════════════════════════════ OFFICES / MAP ═══ -->.*?</section>',
+        '',
+        html, count=1, flags=re.DOTALL
+    )
+
+    # Add "← Главный сайт" link in hero
+    html = html.replace(
+        '            <div class="hero-badge" id="hero-badge">',
+        '            <a href="index.html" class="seg-back-link" style="position:relative;z-index:1;display:inline-block;margin-bottom:16px;">← Главный сайт</a>\n            <div class="hero-badge" id="hero-badge">',
+        1
+    )
 
     with open(filename, 'w', encoding='utf-8') as f:
         f.write(html)

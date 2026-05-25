@@ -54,13 +54,11 @@
   <header class="header" id="header">
     <div class="container">
       <a href="index.html" class="logo" aria-label="Atom Exchange — на главную">
-        <span class="logo-text">Atom<span class="logo-accent">EX</span></span>
+        <img src="Logo_Atom.jpg" alt="Atom Exchange" class="logo-img">
       </a>
       <nav class="nav" aria-label="Основная навигация">
         <a href="index.html#exchange" class="nav-link">Обменять</a>
-        <a href="index.html#how-it-works" class="nav-link">Как работает</a>
         <a href="index.html#offices" class="nav-link">Офисы</a>
-        <a href="index.html#faq" class="nav-link">FAQ</a>
         <div class="nav-dropdown" id="nav-dropdown">
           <button class="nav-link nav-dropdown-btn" id="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
             Клиентам
@@ -249,91 +247,6 @@
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="section how" id="how-it-works" aria-labelledby="how-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title" id="how-title">Как проходит обмен</h2>
-          <p class="section-sub">Три шага — от первого сообщения до наличных в руках</p>
-        </div>
-        <ol class="steps-list">
-          <li class="step-item">
-            <div class="step-num">01</div>
-            <div class="step-body">
-              <h3 class="step-title">Свяжитесь с менеджером</h3>
-              <p class="step-text">Напишите или позвоните — укажите сумму, направление обмена (рубли → USDT или наоборот) и город. Менеджер уточнит детали и рассчитает условия.</p>
-            </div>
-            <div class="step-connector" aria-hidden="true"></div>
-          </li>
-          <li class="step-item">
-            <div class="step-num">02</div>
-            <div class="step-body">
-              <h3 class="step-title">Фиксируем курс и резервируем кассу</h3>
-              <p class="step-text">Курс фиксируется на 3 часа. Для крупных сумм — резервируем наличные или USDT заранее, чтобы всё было готово к вашему приезду.</p>
-            </div>
-            <div class="step-connector" aria-hidden="true"></div>
-          </li>
-          <li class="step-item">
-            <div class="step-num">03</div>
-            <div class="step-body">
-              <h3 class="step-title">Приезжаете — проводим сделку</h3>
-              <p class="step-text">Паспорт + ваша сумма. AML-проверка, договор ДКП, расчёт — всё в приватном офисе за 15–20 минут. ДКП остаётся у вас.</p>
-            </div>
-          </li>
-        </ol>
-        <div class="how-cta">
-          <a href="https://t.me/danila_exchange" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a>
-          <button class="btn-outline call-trigger">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91A16 16 0 0015.1 17.9l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 18.92z"/></svg>
-            Позвонить
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section faq-section" id="faq" aria-labelledby="faq-title">
-      <div class="container">
-        <div class="faq-layout">
-          <div class="faq-left">
-            <h2 class="section-title" id="faq-title">Частые вопросы</h2>
-            <p class="section-sub">Не нашли ответа? Пишите напрямую.</p>
-            <div class="faq-cta-group">
-              <a href="https://t.me/danila_exchange" class="btn-primary faq-cta" target="_blank" rel="noopener">Написать вопрос</a>
-              <button class="btn-outline faq-cta-call call-trigger">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91A16 16 0 0015.1 17.9l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 18.92z"/></svg>
-                Позвонить
-              </button>
-            </div>
-          </div>
-          <div class="faq-right">
-            <div class="faq-list" role="list">
-              <div class="faq-item" role="listitem">
-                <button class="faq-q" aria-expanded="false">Какая минимальная сумма для риелтора?<svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-                <div class="faq-a"><div class="faq-a-inner"><p>Минимум — 100 USDT или эквивалент. Максимум не ограничен. Для сумм от 500 000 ₽ рекомендуем написать заранее — чтобы касса была готова к вашему приезду.</p></div></div>
-              </div>
-              <div class="faq-item" role="listitem">
-                <button class="faq-q" aria-expanded="false">Нужна ли предварительная запись?<svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-                <div class="faq-a"><div class="faq-a-inner"><p>Для небольших сумм — можно прийти без записи в рабочее время. Для крупных сделок от 500 000 ₽ настоятельно рекомендуем согласовать заранее — мы зарезервируем нужную сумму.</p></div></div>
-              </div>
-              <div class="faq-item" role="listitem">
-                <button class="faq-q" aria-expanded="false">Как защищены мои данные?<svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-                <div class="faq-a"><div class="faq-a-inner"><p>Паспорт используется только для оформления договора ДКП и AML-проверки. Данные не хранятся и не передаются третьим лицам. Обмен проходит в закрытом офисе.</p></div></div>
-              </div>
-              <div class="faq-item" role="listitem">
-                <button class="faq-q" aria-expanded="false">Принимаете USDT с любого кошелька?<svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-                <div class="faq-a"><div class="faq-a-inner"><p>Только после AML-проверки. Принимаем исключительно чистые монеты. Это защищает вас от юридических рисков и проблем с банками в будущем.</p></div></div>
-              </div>
-              <div class="faq-item" role="listitem">
-                <button class="faq-q" aria-expanded="false">Работаете с постоянными клиентами?<svg class="faq-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-                <div class="faq-a"><div class="faq-a-inner"><p>Да. Для постоянных клиентов с регулярными операциями согласовываем индивидуальный курс, приоритетное резервирование кассы и ускоренную обработку. Спросите менеджера при первом обращении.</p></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- FINAL CTA -->
     <section class="cta-section" aria-labelledby="cta-title">
       <div class="container">
@@ -369,7 +282,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo footer-logo"><span class="logo-text">Atom<span class="logo-accent">EX</span></span></a>
+          <a href="index.html" class="logo footer-logo"><img src="Logo_Atom.jpg" alt="Atom Exchange" class="logo-img"></a>
           <p class="footer-desc">Банковский подход к операциям с криптовалютой. Офисы VIP-уровня в Уфе, Казани и Екатеринбурге.</p>
           <div class="footer-socials">
             <a href="https://t.me/danila_exchange" class="footer-social" target="_blank" rel="noopener" aria-label="Telegram">
@@ -383,9 +296,7 @@
         <nav class="footer-nav" aria-label="Навигация">
           <h3 class="footer-nav-title">Навигация</h3>
           <a href="index.html" class="footer-link">Главная</a>
-          <a href="index.html#how-it-works" class="footer-link">Как работает</a>
           <a href="index.html#offices" class="footer-link">Офисы</a>
-          <a href="index.html#faq" class="footer-link">FAQ</a>
         </nav>
         <nav class="footer-nav" aria-label="Клиентам">
           <h3 class="footer-nav-title">Клиентам</h3>
