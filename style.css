@@ -239,6 +239,7 @@ ol, ul { list-style: none; }
 
 /* Logo */
 .logo { display: flex; align-items: center; }
+.logo-img { height: 36px; width: auto; display: block; }
 .logo-text {
   font-family: var(--font-h);
   font-size: 22px;
@@ -1511,6 +1512,48 @@ ol, ul { list-style: none; }
 }
 
 /* ══════════════════════════════════════════════════════════
+   FOUNDER QUOTE
+══════════════════════════════════════════════════════════ */
+.founder-section { padding: 0 0 0; }
+.founder-card {
+  display: flex; align-items: center; gap: 40px;
+  background: #0c0c0c; border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 24px; padding: 40px 48px;
+}
+.founder-photo {
+  width: 100px; height: 100px; border-radius: 50%;
+  object-fit: cover; flex-shrink: 0;
+  border: 2px solid rgba(91,138,255,0.35);
+}
+.founder-quote {
+  font-family: var(--font-h); font-size: clamp(15px, 2vw, 20px);
+  font-weight: 600; color: #f0f0f0; line-height: 1.55;
+  margin: 0 0 20px; font-style: italic;
+}
+.founder-sig { display: flex; flex-direction: column; gap: 4px; }
+.founder-name { font-size: 15px; font-weight: 700; color: #5b8aff; }
+.founder-role { font-size: 12px; color: rgba(240,240,240,0.38); }
+
+/* RESERVES */
+.reserves-section { padding: 72px 0 0; }
+.reserves-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px;
+}
+.reserve-item {
+  background: #0c0c0c; border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 20px 24px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.reserve-coin { font-size: 12px; font-weight: 600; color: rgba(240,240,240,0.45); letter-spacing: 0.5px; }
+.reserve-amount { font-family: var(--font-h); font-size: 18px; font-weight: 700; color: #f0f0f0; }
+.reserves-note { font-size: 12px; color: rgba(240,240,240,0.3); text-align: center; }
+
+@media (max-width: 900px) {
+  .founder-card { flex-direction: column; text-align: center; align-items: center; padding: 32px 24px; gap: 24px; }
+  .reserves-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ══════════════════════════════════════════════════════════
    CTA SECTION
 ══════════════════════════════════════════════════════════ */
 .cta-section { padding: 80px 0; }
@@ -1654,7 +1697,7 @@ ol, ul { list-style: none; }
   .btn-tg { display: none; }
   .btn-call { display: none; }
   .burger { display: flex; width: 46px; height: 46px; padding: 10px; }
-  .logo-text { font-size: 40px; }
+  .logo-img { height: 44px; }
 
   /* How loyalty */
   .loyalty-inner { flex-direction: column; align-items: flex-start; gap: 14px; }

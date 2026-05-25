@@ -379,6 +379,28 @@ for filename, data in CITY_DATA.items():
     html = re.sub(r'<script>\s*\(function\(\).*?</script>\s*', '', html, count=1, flags=re.DOTALL)
     html = html.replace('  <script src="script.js"></script>', HOURS_SCRIPT + '  <script src="script.js"></script>')
 
+    # Логотип
+    html = html.replace(
+        '<span class="logo-text">Atom<span class="logo-accent">EX</span></span>',
+        '<img src="Logo_Atom.jpg" alt="Atom Exchange" class="logo-img">'
+    )
+
+    # Цитата владельца перед CTA
+    founder_html = """
+    <section style="padding: 0 0 64px;">
+      <div class="container">
+        <div style="display:flex;align-items:center;gap:32px;background:#0c0c0c;border:1px solid rgba(255,255,255,0.07);border-radius:24px;padding:36px 40px;">
+          <img src="man.jpg" alt="Данила, основатель" style="width:80px;height:80px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(91,138,255,0.35);">
+          <div>
+            <p style="font-family:'Manrope',sans-serif;font-size:16px;font-weight:600;color:#f0f0f0;line-height:1.55;margin:0 0 16px;font-style:italic;">«Мы строим не криптообменник — мы строим сеть криптобанков. Живой менеджер, VIP-офис, юридическая защита в каждом городе. Туда, куда не идут банки, — приходим мы.»</p>
+            <p style="font-size:14px;font-weight:700;color:#5b8aff;margin:0 0 4px;">Данила</p>
+            <p style="font-size:12px;color:rgba(240,240,240,0.38);margin:0;">Основатель Atom Exchange</p>
+          </div>
+        </div>
+      </div>
+    </section>"""
+    html = re.sub(r'(<section class="city-cta")', founder_html + r'\n    \1', html, count=1)
+
     with open(filename, 'w', encoding='utf-8') as f:
         f.write(html)
     print(f'  -> OK')
