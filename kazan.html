@@ -63,6 +63,61 @@
     }
   ]
   </script>
+  <style>
+    /* OFFICE GALLERY */
+    .office-gallery-section { padding: 64px 0 0; }
+    .sub-kicker { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #5b8aff; margin: 0 0 10px; }
+    .sub-big-title { font-family: 'Manrope', sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 800; color: #f0f0f0; margin: 0 0 32px; text-transform: uppercase; letter-spacing: -1px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .gallery-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 16px; display: block; transition: transform 0.3s; }
+    .gallery-img:hover { transform: scale(1.02); }
+
+    /* HOW TO GET THERE */
+    .sub-steps { padding: 72px 0 64px; }
+    .sub-step-card {
+      border-radius: 20px; overflow: hidden;
+      background: #0c0c0c; border: 1px solid rgba(255,255,255,0.07);
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative; display: flex; flex-direction: column;
+    }
+    .sub-step-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, #5b8aff, #9b87ff);
+      opacity: 0; transition: opacity 0.25s; z-index: 2;
+    }
+    .sub-step-card:hover { border-color: rgba(91,138,255,0.30); transform: translateY(-4px); }
+    .sub-step-card:hover::before { opacity: 1; }
+    .sub-step-photo { position: relative; flex-shrink: 0; }
+    .sub-step-photo img { width: 100%; height: 320px; object-fit: cover; display: block; }
+    .sub-step-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 60px 16px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+      display: flex; align-items: flex-end; justify-content: space-between;
+    }
+    .sub-step-badge {
+      display: inline-flex; align-items: center;
+      background: rgba(91,138,255,0.18); border: 1px solid rgba(91,138,255,0.35);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-radius: 8px; padding: 5px 12px;
+      font-size: 14px; font-weight: 700; color: #5b8aff;
+    }
+    .sub-step-tag {
+      font-size: 10px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;
+      color: rgba(240,240,240,0.72); background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 4px 10px;
+    }
+    .sub-step-body { padding: 20px 20px 24px; flex: 1; }
+    .sub-step-title { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 700; color: #f0f0f0; margin: 0 0 8px; line-height: 1.45; }
+    .sub-step-text { font-size: 12px; color: rgba(240,240,240,0.38); margin: 0; line-height: 1.6; }
+
+    @media (max-width: 700px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .sub-steps { padding: 48px 0 48px; }
+      .sub-step-photo img { height: 220px; }
+      .sub-steps-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -302,6 +357,69 @@
       </div>
     </section>
 
+
+    <section class="office-gallery-section">
+      <div class="container">
+        <p class="sub-kicker">Фото офиса</p>
+        <h2 class="sub-big-title">Наш офис</h2>
+        <div class="gallery-grid">
+        <img class="gallery-img" src="photos/kazan/office_1.png" alt="Офис Казань — фото 1" loading="lazy">
+        <img class="gallery-img" src="photos/kazan/office_2.png" alt="Офис Казань — фото 2" loading="lazy">
+        <img class="gallery-img" src="photos/kazan/office_3.png" alt="Офис Казань — фото 3" loading="lazy">
+        <img class="gallery-img" src="photos/kazan/office_4.png" alt="Офис Казань — фото 4" loading="lazy">
+        <img class="gallery-img" src="photos/kazan/office_5.png" alt="Офис Казань — фото 5" loading="lazy">
+        <img class="gallery-img" src="photos/kazan/office_6.png" alt="Офис Казань — фото 6" loading="lazy">
+        </div>
+      </div>
+    </section>
+    <section class="sub-steps">
+      <div class="container">
+        <p class="sub-kicker">Фотоинструкция</p>
+        <h2 class="sub-big-title">Как пройти</h2>
+        <div class="sub-steps-grid" style="display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr);">
+
+          <div class="sub-step-card">
+            <div class="sub-step-photo">
+              <img src="photos/kazan/office_3.png" alt="Шаг 01" loading="lazy">
+              <div class="sub-step-overlay">
+                <span class="sub-step-badge">01</span>
+                <span class="sub-step-tag">ВХОД</span>
+              </div>
+            </div>
+            <div class="sub-step-body">
+              <h3 class="sub-step-title">Заходим в бизнес-центр.</h3>
+              <p class="sub-step-text">ул. Баумана 9А — пешеходная зона в центре Казани.</p>
+            </div>
+          </div>
+          <div class="sub-step-card">
+            <div class="sub-step-photo">
+              <img src="photos/kazan/office_4.png" alt="Шаг 02" loading="lazy">
+              <div class="sub-step-overlay">
+                <span class="sub-step-badge">02</span>
+                <span class="sub-step-tag">РЕСЕПШЕН</span>
+              </div>
+            </div>
+            <div class="sub-step-body">
+              <h3 class="sub-step-title">Покажите документ и скажите, что вам нужно в офис 207.</h3>
+            </div>
+          </div>
+          <div class="sub-step-card">
+            <div class="sub-step-photo">
+              <img src="photos/kazan/office_1.png" alt="Шаг 03" loading="lazy">
+              <div class="sub-step-overlay">
+                <span class="sub-step-badge">03</span>
+                <span class="sub-step-tag">ОФИС 207</span>
+              </div>
+            </div>
+            <div class="sub-step-body">
+              <h3 class="sub-step-title">Найдите вход в офис 207.</h3>
+              <p class="sub-step-text">По указателям на 2 этаже, вывеска Atom Exchange на двери.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ══════════════════════════════════════ SEGMENTS ═══ -->
     <section class="section segments" id="segments" aria-labelledby="seg-title">
       <div class="container">
@@ -504,21 +622,21 @@
             <p class="office-detail">Пн–Сб: 10:00–19:00</p>
             <p class="office-detail">Верхнеторговая площадь, 6, офис 2.5</p>
             <p class="office-note">Прямой обмен · без посредников</p>
-            <a href="ufa.html" class="office-link">Страница офиса →</a>
+            <a href="Казань.html" class="office-link">Как пройти в офис →</a>
           </article>
           <article class="office-card">
             <h3 class="office-city">Казань</h3>
             <p class="office-detail">Пн–Сб: 10:00–19:00</p>
             <p class="office-detail">ул. Баумана 9А, офис 207</p>
             <p class="office-note">Прямой обмен · без посредников</p>
-            <a href="kazan.html" class="office-link">Страница офиса →</a>
+            <a href="Казань.html" class="office-link">Как пройти в офис →</a>
           </article>
           <article class="office-card">
             <h3 class="office-city">Екатеринбург</h3>
             <p class="office-detail">Пн–Сб: 10:00–19:00</p>
             <p class="office-detail">Радищева 6А, офис 21103</p>
             <p class="office-note">Прямой обмен · без посредников</p>
-            <a href="ekb.html" class="office-link">Страница офиса →</a>
+            <a href="Казань.html" class="office-link">Как пройти в офис →</a>
           </article>
         </div>
       </div>
