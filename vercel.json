@@ -1,0 +1,19 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "ufa.atom-exchange.ru" }],
+      "destination": "/ufa.html"
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "kazan.atom-exchange.ru" }],
+      "destination": "/kazan.html"
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "ekb.atom-exchange.ru" }],
+      "destination": "/ekb.html"
+    }
+  ]
+}
