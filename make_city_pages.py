@@ -104,12 +104,21 @@ for filename, c in CITIES.items():
         1
     )
 
-    # Add link to office guide in chips
-    guide_chip = f'<span class="hero-chip"><a href="{c["guide_link"]}" style="color:inherit;text-decoration:none;">📍 Как пройти в офис →</a></span>'
+    # Remove map section (map-wrap) from subdomain pages
+    html = re.sub(r'\s*<!-- Map -->.*?</div>\s*(?=\s*<!-- Office cards)', '', html, count=1, flags=re.DOTALL)
+
+    # Office cards on subdomains: link back to the city guide page
     html = html.replace(
-        '<span class="hero-chip">Без лимита по сумме</span>',
-        f'<span class="hero-chip">Без лимита по сумме</span>\n              {guide_chip}',
-        1
+        '<a href="https://ufa.atom-exchange.ru" class="office-link">Страница офиса →</a>',
+        f'<a href="{c["guide_link"]}" class="office-link">Как пройти в офис →</a>'
+    )
+    html = html.replace(
+        '<a href="https://kazan.atom-exchange.ru" class="office-link">Страница офиса →</a>',
+        f'<a href="{c["guide_link"]}" class="office-link">Как пройти в офис →</a>'
+    )
+    html = html.replace(
+        '<a href="https://ekb.atom-exchange.ru" class="office-link">Страница офиса →</a>',
+        f'<a href="{c["guide_link"]}" class="office-link">Как пройти в офис →</a>'
     )
 
     with open(filename, 'w', encoding='utf-8') as f:
