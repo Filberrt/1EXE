@@ -1,0 +1,10 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^ufa\.atom-exchange\.ru$ [NC]
+RewriteRule ^$ ufa.html [L]
+
+RewriteCond %{HTTP_HOST} ^kazan\.atom-exchange\.ru$ [NC]
+RewriteRule ^$ kazan.html [L]
+
+RewriteCond %{HTTP_HOST} ^ekb\.atom-exchange\.ru$ [NC]
+RewriteRule ^$ ekb.html [L]
