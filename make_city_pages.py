@@ -8,6 +8,7 @@ PHOTO_DIRS = {
 }
 
 def copy_photos(city_key):
+    """Копирует фото офиса в photos/{city}/, возвращает список путей."""
     src_dir = PHOTO_DIRS.get(city_key)
     if not src_dir or not os.path.exists(src_dir):
         return []
@@ -21,6 +22,16 @@ def copy_photos(city_key):
         shutil.copy2(os.path.join(src_dir, fname), os.path.join(dst_dir, dst_name))
         paths.append(f'photos/{city_key}/{dst_name}')
     return paths
+
+
+def load_orig_imgs(orig_file):
+    """Вытаскивает base64-фотки из _оригинал.html для раздела 'Как пройти'."""
+    try:
+        with open(orig_file, encoding='utf-8') as f:
+            content = f.read()
+    except FileNotFoundError:
+        return []
+    return re.findall(r'src="(data:image/(?:jpeg|png)[^"]+)"', content)
 
 
 GALLERY_STEPS_CSS = """
@@ -99,12 +110,15 @@ def make_gallery_html(photo_paths, city_name):
     </section>"""
 
 
-def make_steps_html(steps, photo_paths, cols):
-    if not steps or not photo_paths:
+def make_steps_html(steps, orig_imgs, img_order, cols):
+    """steps = [(num, tag, title, text), ...]  — без photo_idx.
+       img_order — какой индекс из orig_imgs идёт на каждый шаг."""
+    if not steps or not orig_imgs:
         return ''
+    ordered = [orig_imgs[i] if i < len(orig_imgs) else '' for i in img_order]
     cards = ''
-    for num, tag, title, text, photo_idx in steps:
-        img_src = photo_paths[photo_idx] if photo_idx < len(photo_paths) else ''
+    for i, (num, tag, title, text) in enumerate(steps):
+        img_src = ordered[i] if i < len(ordered) else ''
         img_html = f'<img src="{img_src}" alt="Шаг {num}" loading="lazy">' if img_src else ''
         text_html = f'\n              <p class="sub-step-text">{text}</p>' if text else ''
         cards += f"""
@@ -138,7 +152,6 @@ CITIES = {
         'name': 'Уфа',
         'name_in': 'в Уфе',
         'subdomain': 'ufa.atom-exchange.ru',
-        'address': 'Верхнеторговая площадь, 6',
         'region': 'RU-BA',
         'geo': '54.7388;55.9721',
         'icbm': '54.7388, 55.9721',
@@ -150,11 +163,12 @@ CITIES = {
         'guide_link': 'Уфа.html',
         'schema_index': 0,
         'photos_key': 'ufa',
-        # photo_idx is the 0-based index in the sorted photo list
+        'orig_file': 'Уфа_оригинал.html',
+        'img_order': [0, 1, 2],
         'steps': [
-            ('01', 'ВХОД',     'Заходим в бизнес-центр.', 'Верхнеторговая площадь, 6 — вход с главного фасада, стеклянные двери.', 5),
-            ('02', 'РЕСЕПШЕН', 'Покажите документ и скажите, что вам нужно в офис 2.5.', '', 1),
-            ('03', 'ОФИС 2.5', 'Найдите дверь в офис 2.5. Вывеска Atom Exchange на двери.', 'Менеджер встретит вас.', 0),
+            ('01', 'ВХОД',     'Заходим в бизнес-центр.',                                'Верхнеторговая площадь, 6 — вход с главного фасада, стеклянные двери.'),
+            ('02', 'РЕСЕПШЕН', 'Покажите документ и скажите, что вам нужно в офис 2.5.', ''),
+            ('03', 'ОФИС 2.5', 'Найдите дверь в офис 2.5.',                              'Вывеска Atom Exchange на двери. Менеджер встретит вас.'),
         ],
         'steps_cols': 'repeat(3, 1fr)',
     },
@@ -162,7 +176,6 @@ CITIES = {
         'name': 'Казань',
         'name_in': 'в Казани',
         'subdomain': 'kazan.atom-exchange.ru',
-        'address': 'ул. Баумана 9А, офис 207',
         'region': 'RU-TA',
         'geo': '55.7887;49.1221',
         'icbm': '55.7887, 49.1221',
@@ -174,18 +187,20 @@ CITIES = {
         'guide_link': 'Казань.html',
         'schema_index': 1,
         'photos_key': 'kazan',
+        'orig_file': 'Казань_оригинал.html',
+        'img_order': [3, 0, 1, 2],
         'steps': [
-            ('01', 'ВХОД',     'Заходим в бизнес-центр.', 'ул. Баумана 9А — пешеходная зона в центре Казани.', 2),
-            ('02', 'РЕСЕПШЕН', 'Покажите документ и скажите, что вам нужно в офис 207.', '', 3),
-            ('03', 'ОФИС 207', 'Найдите вход в офис 207.', 'По указателям на 2 этаже, вывеска Atom Exchange на двери.', 0),
+            ('00', 'ПАРКОВКА', 'Парковка.',                                                   'Пропуск и видеоинструкцию по паркингу уточните у менеджера заранее.'),
+            ('01', 'ВХОД',     'Заходим в бизнес-центр.',                                    'ул. Баумана 9А — пешеходная зона в центре Казани.'),
+            ('02', 'РЕСЕПШЕН', 'Покажите документ и скажите, что вам нужно в офис 207.',     ''),
+            ('03', 'ОФИС 207', 'Найдите вход в офис 207.',                                   'По указателям на 2 этаже, вывеска Atom Exchange на двери.'),
         ],
-        'steps_cols': 'repeat(3, 1fr)',
+        'steps_cols': 'repeat(2, 1fr)',
     },
     'ekb.html': {
         'name': 'Екатеринбург',
         'name_in': 'в Екатеринбурге',
         'subdomain': 'ekb.atom-exchange.ru',
-        'address': 'Радищева 6А, офис 21103',
         'region': 'RU-SVE',
         'geo': '56.8389;60.6057',
         'icbm': '56.8389, 60.6057',
@@ -196,8 +211,14 @@ CITIES = {
         'chip': 'VIP-офис в Екб · Радищева 6А',
         'guide_link': 'Екатеринбург.html',
         'schema_index': 2,
-        'photos_key': 'ekb',  # no photos yet — folder doesn't exist
-        'steps': [],
+        'photos_key': 'ekb',
+        'orig_file': 'Екатеринбург_оригинал.html',
+        'img_order': [0, 1, 2],
+        'steps': [
+            ('01', 'ПОДЪЕЗД',  'Заходим во второй подъезд.',                               'Радищева 6А — найдите второй подъезд здания.'),
+            ('02', 'РЕСЕПШЕН', 'Покажите документ, нужен пропуск на 11 этаж в офис 21103.',''),
+            ('03', 'ОФИС',     'После лифта направо, через проход, налево до конца.',      'Позвоните в домофон и продиктуйте код заявки менеджеру.'),
+        ],
         'steps_cols': 'repeat(3, 1fr)',
     },
 }
@@ -210,46 +231,36 @@ with open('index.html', encoding='utf-8') as f:
 for filename, c in CITIES.items():
     html = base
 
-    # Title
     html = re.sub(r'<title>.*?</title>', f'<title>{c["title"]}</title>', html, flags=re.DOTALL)
-    # Description
     html = re.sub(r'<meta name="description"[^>]+>', f'<meta name="description" content="{c["description"]}" />', html)
-    # Keywords
     html = re.sub(r'<meta name="keywords"[^>]+>', f'<meta name="keywords" content="{c["keywords"]}" />', html)
-    # Canonical
     html = html.replace('href="https://atom-exchange.ru/"', f'href="https://{c["subdomain"]}/"', 1)
-    # OG url
     html = html.replace('<meta property="og:url" content="https://atom-exchange.ru/" />', f'<meta property="og:url" content="https://{c["subdomain"]}/" />', 1)
-    # OG title
     name_in = c['name_in']
     html = re.sub(r'<meta property="og:title"[^>]+>', f'<meta property="og:title" content="Atom Exchange — Обмен криптовалюты {name_in}" />', html)
-    # Geo
     html = html.replace('content="RU-BA"', f'content="{c["region"]}"', 1)
     html = html.replace('content="Уфа, Казань, Екатеринбург"', f'content="{c["name"]}"', 1)
     html = html.replace('content="54.7388;55.9721"', f'content="{c["geo"]}"', 1)
     html = html.replace('content="54.7388, 55.9721"', f'content="{c["icbm"]}"', 1)
-    # Schema.org
+
     schemas = re.findall(r'\{[^{}]*"LocalBusiness"[^{}]*\}', html, re.DOTALL)
     if schemas and len(schemas) > c['schema_index']:
         schema_single = schemas[c['schema_index']]
         html = re.sub(r'<script type="application/ld\+json">.*?</script>',
             f'<script type="application/ld+json">\n  {schema_single}\n  </script>',
             html, count=1, flags=re.DOTALL)
-    # Hero title
+
     html = re.sub(
         r'<h1 class="hero-title" id="hero-title">.*?</h1>',
         f'<h1 class="hero-title" id="hero-title">{c["hero_title"]}</h1>',
         html, count=1, flags=re.DOTALL
     )
-    # First chip
     html = html.replace(
         '<span class="hero-chip">VIP-офисы: Уфа, Казань, Екб</span>',
         f'<span class="hero-chip">{c["chip"]}</span>',
         1
     )
-    # Remove map section
     html = re.sub(r'\s*<!-- Map -->.*?</div>\s*(?=\s*<!-- Office cards)', '', html, count=1, flags=re.DOTALL)
-    # Office card links
     html = html.replace(
         '<a href="ufa.html" class="office-link">Страница офиса →</a>',
         f'<a href="{c["guide_link"]}" class="office-link">Как пройти в офис →</a>'
@@ -263,22 +274,23 @@ for filename, c in CITIES.items():
         f'<a href="{c["guide_link"]}" class="office-link">Как пройти в офис →</a>'
     )
 
-    # Copy photos and build sections
-    photos = copy_photos(c['photos_key'])
-    gallery_html = make_gallery_html(photos, c['name'])
-    steps_html = make_steps_html(c['steps'], photos, c['steps_cols'])
+    # Галерея — фото офиса из папок
+    office_photos = copy_photos(c['photos_key'])
+    gallery_html = make_gallery_html(office_photos, c['name'])
 
-    # Inject CSS before </head>
+    # "Как пройти" — base64 фотки из _оригинал.html
+    orig_imgs = load_orig_imgs(c['orig_file'])
+    steps_html = make_steps_html(c['steps'], orig_imgs, c['img_order'], c['steps_cols'])
+
     css_block = f'  <style>{GALLERY_STEPS_CSS}  </style>\n</head>'
     html = html.replace('</head>', css_block, 1)
 
-    # Inject gallery + steps before segments section
     new_sections = gallery_html + steps_html + '\n'
     if INJECT_BEFORE in html:
         html = html.replace(INJECT_BEFORE, new_sections + '\n' + INJECT_BEFORE, 1)
 
     with open(filename, 'w', encoding='utf-8') as f:
         f.write(html)
-    print(f'{filename} OK ({len(photos)} photos)')
+    print(f'{filename} OK (галерея: {len(office_photos)} фото, шаги: {len(orig_imgs)} фото из оригинала)')
 
 print('Done.')
