@@ -393,7 +393,7 @@ for filename, data in CITY_DATA.items():
           <img src="man.jpg" alt="Данила, основатель" style="width:80px;height:80px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(91,138,255,0.35);">
           <div>
             <p style="font-family:'Manrope',sans-serif;font-size:16px;font-weight:600;color:#f0f0f0;line-height:1.55;margin:0 0 16px;font-style:italic;">«Мы строим не криптообменник — мы строим сеть криптобанков. Живой менеджер, VIP-офис, юридическая защита в каждом городе. Туда, куда не идут банки, — приходим мы.»</p>
-            <p style="font-size:14px;font-weight:700;color:#5b8aff;margin:0 0 4px;">Данила</p>
+            <p style="font-size:14px;font-weight:700;color:#5b8aff;margin:0 0 4px;">Александр Банаев</p>
             <p style="font-size:12px;color:rgba(240,240,240,0.38);margin:0;">Основатель Atom Exchange</p>
           </div>
         </div>

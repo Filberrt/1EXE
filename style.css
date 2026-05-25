@@ -239,7 +239,7 @@ ol, ul { list-style: none; }
 
 /* Logo */
 .logo { display: flex; align-items: center; }
-.logo-img { height: 36px; width: auto; display: block; }
+.logo-img { height: 48px; width: auto; display: block; mix-blend-mode: screen; }
 .logo-text {
   font-family: var(--font-h);
   font-size: 22px;
@@ -834,6 +834,25 @@ ol, ul { list-style: none; }
   letter-spacing: 1.2px;
   padding: 10px 16px 4px;
 }
+
+/* ══════════════════════════════════════════════════════════
+   SERVICES
+══════════════════════════════════════════════════════════ */
+.services-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+}
+.service-card {
+  background: #0c0c0c; border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px; padding: 24px 20px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+  transition: border-color 0.25s, transform 0.2s;
+}
+.service-card:hover { border-color: rgba(91,138,255,0.35); transform: translateY(-3px); }
+.service-icon { font-size: 28px; line-height: 1; }
+.service-name { font-family: var(--font-h); font-size: 14px; font-weight: 700; color: #f0f0f0; }
+.service-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #5b8aff; }
+@media (max-width: 900px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
 
 /* ══════════════════════════════════════════════════════════
    SEGMENTS
@@ -1521,9 +1540,9 @@ ol, ul { list-style: none; }
   border-radius: 24px; padding: 40px 48px;
 }
 .founder-photo {
-  width: 100px; height: 100px; border-radius: 50%;
-  object-fit: cover; flex-shrink: 0;
-  border: 2px solid rgba(91,138,255,0.35);
+  width: 140px; height: 180px; border-radius: 20px;
+  object-fit: cover; object-position: center top;
+  flex-shrink: 0; border: 2px solid rgba(91,138,255,0.35);
 }
 .founder-quote {
   font-family: var(--font-h); font-size: clamp(15px, 2vw, 20px);
@@ -1697,7 +1716,7 @@ ol, ul { list-style: none; }
   .btn-tg { display: none; }
   .btn-call { display: none; }
   .burger { display: flex; width: 46px; height: 46px; padding: 10px; }
-  .logo-img { height: 44px; }
+  .logo-img { height: 52px; }
 
   /* How loyalty */
   .loyalty-inner { flex-direction: column; align-items: flex-start; gap: 14px; }

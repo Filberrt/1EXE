@@ -158,8 +158,8 @@ CITIES = {
         'title': 'Обмен криптовалюты в Уфе | Atom Exchange — VIP-офис',
         'description': 'Обмен USDT, Bitcoin и криптовалюты на рубли в Уфе. VIP-офис на Верхнеторговой площади, 6. Живой менеджер, фиксация курса на 3 часа, сделки от 100 USDT.',
         'keywords': 'обмен криптовалюты Уфа, купить USDT Уфа, продать Bitcoin Уфа, криптообменник Уфа, обмен крипты на рубли Уфа',
-        'hero_title': 'Обмен криптовалюты<br><span class="hero-title-accent">в Уфе — VIP‑офис<br>Верхнеторговая пл., 6</span>',
-        'chip': 'VIP-офис в Уфе · Верхнеторговая пл.',
+        'hero_title': None,
+        'chip': 'Уфа · Верхнеторговая пл., 6',
         'guide_link': 'Уфа.html',
         'schema_index': 0,
         'photos_key': 'ufa',
@@ -182,8 +182,8 @@ CITIES = {
         'title': 'Обмен криптовалюты в Казани | Atom Exchange — VIP-офис',
         'description': 'Обмен USDT, Bitcoin и криптовалюты на рубли в Казани. VIP-офис на ул. Баумана 9А. Живой менеджер, фиксация курса на 3 часа, сделки от 100 USDT.',
         'keywords': 'обмен криптовалюты Казань, купить USDT Казань, продать Bitcoin Казань, криптообменник Казань, обмен крипты на рубли Казань',
-        'hero_title': 'Обмен криптовалюты<br><span class="hero-title-accent">в Казани — VIP‑офис<br>ул. Баумана 9А</span>',
-        'chip': 'VIP-офис в Казани · ул. Баумана 9А',
+        'hero_title': None,
+        'chip': 'Казань · ул. Баумана 9А, офис 207',
         'guide_link': 'Казань.html',
         'schema_index': 1,
         'photos_key': 'kazan',
@@ -207,8 +207,8 @@ CITIES = {
         'title': 'Обмен криптовалюты в Екатеринбурге | Atom Exchange — VIP-офис',
         'description': 'Обмен USDT, Bitcoin и криптовалюты на рубли в Екатеринбурге. VIP-офис на Радищева 6А. Живой менеджер, фиксация курса на 3 часа, сделки от 100 USDT.',
         'keywords': 'обмен криптовалюты Екатеринбург, купить USDT Екатеринбург, продать Bitcoin Екатеринбург, криптообменник Екатеринбург, обмен крипты на рубли Екб',
-        'hero_title': 'Обмен криптовалюты<br><span class="hero-title-accent">в Екатеринбурге — VIP‑офис<br>Радищева 6А</span>',
-        'chip': 'VIP-офис в Екб · Радищева 6А',
+        'hero_title': None,
+        'chip': 'Екатеринбург · Радищева 6А, офис 21103',
         'guide_link': 'Екатеринбург.html',
         'schema_index': 2,
         'photos_key': 'ekb',
@@ -250,11 +250,12 @@ for filename, c in CITIES.items():
             f'<script type="application/ld+json">\n  {schema_single}\n  </script>',
             html, count=1, flags=re.DOTALL)
 
-    html = re.sub(
-        r'<h1 class="hero-title" id="hero-title">.*?</h1>',
-        f'<h1 class="hero-title" id="hero-title">{c["hero_title"]}</h1>',
-        html, count=1, flags=re.DOTALL
-    )
+    if c['hero_title'] is not None:
+        html = re.sub(
+            r'<h1 class="hero-title" id="hero-title">.*?</h1>',
+            f'<h1 class="hero-title" id="hero-title">{c["hero_title"]}</h1>',
+            html, count=1, flags=re.DOTALL
+        )
     html = html.replace(
         '<span class="hero-chip">VIP-офисы: Уфа, Казань, Екб</span>',
         f'<span class="hero-chip">{c["chip"]}</span>',
