@@ -47,6 +47,22 @@
     "areaServed": ["Уфа", "Казань", "Екатеринбург"]
   }
   </script>
+  <style>
+    .btn-ask-rate {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 26px;
+      background: rgba(34,197,94,0.10);
+      border: 1px solid rgba(34,197,94,0.35);
+      color: #22c55e; border-radius: 10px;
+      font-weight: 600; font-size: 15px;
+      text-decoration: none; transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-ask-rate:hover { background: rgba(34,197,94,0.2); border-color: rgba(34,197,94,0.6); }
+    .section-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+    .hero-content-solo { display: flex !important; justify-content: center; grid-template-columns: unset !important; }
+    .hero-content-solo .hero-panel { max-width: 680px; width: 100%; }
+  </style>
 </head>
 <body>
 
@@ -161,6 +177,24 @@
           </div>
         </div>
       </div>
+    
+    <!-- ═══════════════════════════════════════ FOUNDER QUOTE ═══ -->
+    <section class="section founder-section">
+      <div class="container">
+        <div class="founder-card">
+          <img src="man.jpg" alt="Александр Банаев" class="founder-photo">
+          <div class="founder-body">
+            <p class="founder-quote">«Мы строим не криптообменник — мы строим сеть криптобанков. Живой менеджер, VIP-офис, юридическая защита в каждом городе.»</p>
+            <div class="founder-sig">
+              <span class="founder-name">Александр Банаев</span>
+              <span class="founder-role">Основатель Atom Exchange</span>
+            </div>
+            <div style="margin-top:20px;">
+              <a href="https://t.me/danila_exchange" class="btn-primary" target="_blank" rel="noopener">Связаться с Александром</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- FOR WHOM -->
@@ -169,7 +203,6 @@
         <div class="seg-for-whom-inner">
           <div class="seg-for-whom-text">
             <h2 id="fw-title">Для кого эта страница</h2>
-            <p>Риелторы регулярно работают с крупными наличными суммами — комиссии, авансы, расчёты по сделкам. Нередко возникает задача конвертировать наличные рубли в USDT или наоборот. Нам важно, чтобы это проходило конфиденциально, юридически прозрачно и без лишней огласки.</p>
           </div>
           <div class="seg-for-whom-list">
             <div class="seg-for-whom-item">
@@ -245,6 +278,7 @@
           </article>
         </div>
       </div>
+<div class="section-cta-row"><a href="https://t.me/danila_exchange" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a><button class="btn-outline call-trigger">Позвонить</button></div>
     </section>
 
     <!-- FINAL CTA -->

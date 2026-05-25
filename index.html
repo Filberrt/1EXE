@@ -63,6 +63,22 @@
     }
   ]
   </script>
+  <style>
+    .btn-ask-rate {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 26px;
+      background: rgba(34,197,94,0.10);
+      border: 1px solid rgba(34,197,94,0.35);
+      color: #22c55e; border-radius: 10px;
+      font-weight: 600; font-size: 15px;
+      text-decoration: none; transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-ask-rate:hover { background: rgba(34,197,94,0.2); border-color: rgba(34,197,94,0.6); }
+    .section-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+    .hero-content-solo { display: flex !important; justify-content: center; grid-template-columns: unset !important; }
+    .hero-content-solo .hero-panel { max-width: 680px; width: 100%; }
+  </style>
 </head>
 <body>
 
@@ -152,7 +168,7 @@
       </div>
 
       <div class="container">
-        <div class="hero-content">
+        <div class="hero-content hero-content-solo">
 
           <!-- ─── LEFT PANEL: заголовок + чипы ─── -->
           <div class="hero-panel">
@@ -180,10 +196,14 @@
               <span class="hero-chip">Живой менеджер</span>
               <span class="hero-chip">Без лимита по сумме</span>
             </div>
+            <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+              <a href="https://t.me/danila_exchange" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a>
+              <button class="btn-outline call-trigger">Позвонить</button>
+            </div>
           </div>
 
           <!-- ─── RIGHT PANEL: EXCHANGE WIDGET ─── -->
-          <div class="widget" id="widget">
+          <div class="widget" id="widget" style="display:none">
             <div class="widget-glow"></div>
 
             <div class="widget-body">
@@ -301,6 +321,25 @@
       </div>
     </section>
 
+
+
+    <!-- ═══════════════════════════════════════ FOUNDER QUOTE ═══ -->
+    <section class="section founder-section">
+      <div class="container">
+        <div class="founder-card">
+          <img src="man.jpg" alt="Основатель Atom Exchange" class="founder-photo">
+          <div class="founder-body">
+            <p class="founder-quote">«Мы строим не криптообменник — мы строим сеть криптобанков. Живой менеджер, VIP-офис, юридическая защита в каждом городе.»</p>
+            <div class="founder-sig">
+              <span class="founder-name">Александр Банаев</span>
+              <span class="founder-role">Основатель Atom Exchange</span>
+            </div>
+            <div style="margin-top:20px;"><a href="https://t.me/danila_exchange" class="btn-primary" target="_blank" rel="noopener">Связаться с Александром</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ══════════════════════════════════════ SERVICES ═══ -->
     <section class="section" id="services">
       <div class="container">
@@ -335,6 +374,7 @@
           </div>
         </div>
       </div>
+<div style="text-align:center;margin-top:28px;"><a href="https://t.me/danila_exchange" class="btn-ask-rate" target="_blank" rel="noopener">Узнать актуальный курс →</a></div>
     </section>
 
     <!-- ══════════════════════════════════════ SEGMENTS ═══ -->
@@ -382,6 +422,7 @@
           </a>
         </div>
       </div>
+<div class="section-cta-row"><a href="https://t.me/danila_exchange" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a><button class="btn-outline call-trigger">Позвонить</button></div>
     </section>
 
     <!-- ══════════════════════════════════════ ADVANTAGES ═══ -->
@@ -460,22 +501,7 @@
           </article>
         </div>
       </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════ FOUNDER QUOTE ═══ -->
-    <section class="section founder-section">
-      <div class="container">
-        <div class="founder-card">
-          <img src="man.jpg" alt="Основатель Atom Exchange" class="founder-photo">
-          <div class="founder-body">
-            <p class="founder-quote">«Мы строим не криптообменник — мы строим сеть криптобанков. Живой менеджер, VIP-офис, юридическая защита в каждом городе. Туда, куда не идут банки, — приходим мы.»</p>
-            <div class="founder-sig">
-              <span class="founder-name">Александр Банаев</span>
-              <span class="founder-role">Основатель Atom Exchange</span>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="section-cta-row"><a href="https://t.me/danila_exchange" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a><button class="btn-outline call-trigger">Позвонить</button></div>
     </section>
 
     <!-- ═══════════════════════════════════════ RESERVES ═══ -->
@@ -483,7 +509,6 @@
       <div class="container">
         <div class="section-head">
           <h2 class="section-title">Резервы</h2>
-          <p class="section-sub">Актуальные резервы по основным направлениям обмена</p>
         </div>
         <div class="reserves-grid">
           <div class="reserve-item">
@@ -512,7 +537,6 @@
       <div class="container">
         <div class="section-head">
           <h2 class="section-title" id="offices-title">Собственные офисы</h2>
-          <p class="section-sub">Три города — один стандарт VIP-обслуживания. Работаете напрямую с нашим менеджером.</p>
         </div>
 
         <!-- Map -->
