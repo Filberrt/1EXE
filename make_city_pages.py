@@ -35,13 +35,32 @@ def load_orig_imgs(orig_file):
 
 
 GALLERY_STEPS_CSS = """
+    /* CITY BAR IN HERO */
+    .subdomain-city-bar {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 20px;
+      background: rgba(91,138,255,0.09);
+      border: 1px solid rgba(91,138,255,0.25);
+      border-radius: 12px; margin-bottom: 20px;
+      font-size: 14px; color: rgba(240,240,240,0.75);
+    }
+    .subdomain-city-bar strong { color: #5b8aff; font-weight: 700; font-size: 15px; }
+
     /* OFFICE GALLERY */
     .office-gallery-section { padding: 64px 0 0; }
     .sub-kicker { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #5b8aff; margin: 0 0 10px; }
-    .sub-big-title { font-family: 'Manrope', sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 800; color: #f0f0f0; margin: 0 0 32px; text-transform: uppercase; letter-spacing: -1px; }
+    .sub-big-title { font-family: 'Manrope', sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 800; color: #f0f0f0; margin: 0 0 24px; text-transform: uppercase; letter-spacing: -1px; }
     .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .gallery-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 16px; display: block; transition: transform 0.3s; }
     .gallery-img:hover { transform: scale(1.02); }
+    .gallery-address {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 20px; padding: 14px 20px;
+      background: #0c0c0c; border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px; width: fit-content;
+      font-size: 14px; color: rgba(240,240,240,0.7);
+    }
+    .gallery-address strong { color: #f0f0f0; font-weight: 700; }
 
     /* HOW TO GET THERE */
     .sub-steps { padding: 72px 0 64px; }
@@ -91,13 +110,14 @@ GALLERY_STEPS_CSS = """
 """
 
 
-def make_gallery_html(photo_paths, city_name):
+def make_gallery_html(photo_paths, city_name, address):
     if not photo_paths:
         return ''
     imgs = '\n'.join(
         f'        <img class="gallery-img" src="{p}" alt="Офис {city_name} — фото {i+1}" loading="lazy">'
         for i, p in enumerate(photo_paths)
     )
+    pin_svg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5b8aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>'
     return f"""
     <section class="office-gallery-section">
       <div class="container">
@@ -105,6 +125,10 @@ def make_gallery_html(photo_paths, city_name):
         <h2 class="sub-big-title">Наш офис</h2>
         <div class="gallery-grid">
 {imgs}
+        </div>
+        <div class="gallery-address">
+          {pin_svg}
+          <strong>{city_name}</strong> · {address}
         </div>
       </div>
     </section>"""
@@ -150,6 +174,7 @@ def make_steps_html(steps, orig_imgs, img_order, cols):
 CITIES = {
     'ufa.html': {
         'name': 'Уфа',
+        'address': 'Верхнеторговая площадь, 6',
         'name_in': 'в Уфе',
         'subdomain': 'ufa.atom-exchange.ru',
         'region': 'RU-BA',
@@ -174,6 +199,7 @@ CITIES = {
     },
     'kazan.html': {
         'name': 'Казань',
+        'address': 'ул. Баумана 9А, офис 207',
         'name_in': 'в Казани',
         'subdomain': 'kazan.atom-exchange.ru',
         'region': 'RU-TA',
@@ -199,6 +225,7 @@ CITIES = {
     },
     'ekb.html': {
         'name': 'Екатеринбург',
+        'address': 'Радищева 6А, офис 21103',
         'name_in': 'в Екатеринбурге',
         'subdomain': 'ekb.atom-exchange.ru',
         'region': 'RU-SVE',
@@ -223,7 +250,7 @@ CITIES = {
     },
 }
 
-INJECT_BEFORE = '    <!-- ══════════════════════════════════════ SEGMENTS ═══ -->'
+INJECT_BEFORE = '    <!-- ═══════════════════════════════════════ OFFICES / MAP ═══ -->'
 
 with open('index.html', encoding='utf-8') as f:
     base = f.read()
@@ -256,11 +283,16 @@ for filename, c in CITIES.items():
             f'<h1 class="hero-title" id="hero-title">{c["hero_title"]}</h1>',
             html, count=1, flags=re.DOTALL
         )
+    # Убираем чип "VIP-офисы: ..." — вместо него city bar добавим в hero panel
     html = html.replace(
         '<span class="hero-chip">VIP-офисы: Уфа, Казань, Екб</span>',
-        f'<span class="hero-chip">{c["chip"]}</span>',
+        '',
         1
     )
+    # City bar над чипами в герое
+    pin_svg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>'
+    city_bar = f'<div class="subdomain-city-bar">{pin_svg} <strong>{c["name"]}</strong> · {c["address"]}</div>\n            '
+    html = html.replace('<div class="hero-chips">', city_bar + '<div class="hero-chips">', 1)
     html = re.sub(r'\s*<!-- Map -->.*?</div>\s*(?=\s*<!-- Office cards)', '', html, count=1, flags=re.DOTALL)
     html = html.replace(
         '<a href="ufa.html" class="office-link">Страница офиса →</a>',
@@ -277,7 +309,7 @@ for filename, c in CITIES.items():
 
     # Галерея — фото офиса из папок
     office_photos = copy_photos(c['photos_key'])
-    gallery_html = make_gallery_html(office_photos, c['name'])
+    gallery_html = make_gallery_html(office_photos, c['name'], c['address'])
 
     # "Как пройти" — base64 фотки из _оригинал.html
     orig_imgs = load_orig_imgs(c['orig_file'])
