@@ -119,7 +119,7 @@ def make_gallery_html(photo_paths, city_name, address):
     )
     pin_svg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5b8aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>'
     return f"""
-    <section class="office-gallery-section">
+    <section class="office-gallery-section" id="office-gallery">
       <div class="container">
         <p class="sub-kicker">Фото офиса</p>
         <h2 class="sub-big-title">Наш офис</h2>
@@ -329,12 +329,21 @@ for filename, c in CITIES.items():
         html, count=1, flags=re.DOTALL
     )
 
-    # Add "← Главный сайт" link in hero
+    # Replace all "#offices" links → gallery on subdomain pages
     html = html.replace(
-        '            <div class="hero-badge" id="hero-badge">',
-        '            <a href="index.html" class="seg-back-link" style="position:relative;z-index:1;display:inline-block;margin-bottom:16px;">← Главный сайт</a>\n            <div class="hero-badge" id="hero-badge">',
-        1
+        '<a href="#offices" class="nav-link">Офисы</a>',
+        '<a href="#office-gallery" class="nav-link">Офис</a>'
     )
+    html = html.replace(
+        '<a href="#offices" class="mobile-nav-link">Офисы</a>',
+        '<a href="#office-gallery" class="mobile-nav-link">Офис</a>'
+    )
+    html = html.replace('href="#offices"', 'href="#office-gallery"', )
+
+    # Add ?from=city to all direction page links so back button works on direction pages
+    city_key = filename.replace('.html', '')
+    for seg in ['rieltory.html', 'ved.html', 'biznes.html', 'perestanovka.html', 'perevody.html']:
+        html = html.replace(f'href="{seg}"', f'href="{seg}?from={city_key}"')
 
     with open(filename, 'w', encoding='utf-8') as f:
         f.write(html)

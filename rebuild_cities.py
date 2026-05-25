@@ -382,7 +382,7 @@ for filename, data in CITY_DATA.items():
     # Логотип
     html = html.replace(
         '<span class="logo-text">Atom<span class="logo-accent">EX</span></span>',
-        '<img src="Logo_Atom.jpg" alt="Atom Exchange" class="logo-img">'
+        '<img src="Logo_Atom.png" alt="Atom Exchange" class="logo-img">'
     )
 
     # Цитата владельца перед CTA
