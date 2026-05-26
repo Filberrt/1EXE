@@ -1039,5 +1039,28 @@
     }
   </script>
   <script src="script.js"></script>
+<script>/* online-status */
+(function(){
+  function upd(){
+    var now=new Date();
+    var msk=new Date(now.getTime()+(now.getTimezoneOffset()+180)*60000);
+    var day=msk.getDay();
+    var mins=msk.getHours()*60+msk.getMinutes();
+    var on=day>=1&&day<=6&&mins>=600&&mins<1140;
+    var sched='Пн–Сб, 10:00–19:00 МСК';
+    var hb=document.getElementById('hero-badge');
+    var hs=document.getElementById('hero-badge-status');
+    if(hb)hb.classList.toggle('offline',!on);
+    if(hs)hs.textContent=on?'Менеджер онлайн':'Сейчас офлайн';
+    var cb=document.getElementById('cta-badge');
+    var cs=document.getElementById('cta-badge-status');
+    if(cb)cb.classList.toggle('offline',!on);
+    if(cs)cs.textContent=on?'Менеджер онлайн · ответит в течение минуты':'Сейчас офлайн · свяжитесь с 10:00 МСК';
+    var role=document.querySelector('.call-modal-role');
+    if(role)role.textContent=(on?'Менеджер онлайн · ':'Сейчас офлайн · ')+sched;
+  }
+  document.readyState==='loading'?document.addEventListener('DOMContentLoaded',upd):upd();
+})();
+</script>
 </body>
 </html>
