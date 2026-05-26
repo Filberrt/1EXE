@@ -955,7 +955,13 @@
       </button>
       <div class="call-modal-avatar">О</div>
       <div class="call-modal-name">Ольга</div>
-      <div class="call-modal-role">Менеджер онлайн · 10:00–19:00</div>
+      <div class="call-modal-badge" id="call-modal-badge">
+        <span class="badge-dot" id="call-modal-dot"></span>
+        <div class="call-modal-badge-text">
+          <span id="call-modal-status">Менеджер онлайн</span>
+          <span class="call-modal-badge-hours">Пн–Сб, 10:00–19:00 МСК</span>
+        </div>
+      </div>
       <div class="call-modal-phone">+7 937 336 3357</div>
       <a href="tel:+79373363357" class="btn-primary call-modal-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1017,8 +1023,10 @@
     var cs=document.getElementById('cta-badge-status');
     if(cb)cb.classList.toggle('offline',!on);
     if(cs)cs.textContent=on?'Менеджер онлайн · ответит в течение минуты':'Сейчас офлайн · свяжитесь с 10:00 МСК';
-    var role=document.querySelector('.call-modal-role');
-    if(role)role.textContent=(on?'Менеджер онлайн · ':'Сейчас офлайн · ')+sched;
+    var mb=document.getElementById('call-modal-badge');
+    var ms=document.getElementById('call-modal-status');
+    if(mb)mb.classList.toggle('offline',!on);
+    if(ms)ms.textContent=on?'Менеджер онлайн':'Сейчас офлайн';
   }
   document.readyState==='loading'?document.addEventListener('DOMContentLoaded',upd):upd();
 })();

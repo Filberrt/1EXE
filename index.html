@@ -396,19 +396,19 @@
         </div>
                 <div class="services-grid">
           <div class="service-card">
-            <span class="service-icon" style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.6);">USDT</span>
+            <span class="service-icon">₮</span>
             <span class="service-name">Обмен USDT</span>
             <span class="service-tag">RUB ↔ USDT · TRC-20 · ERC-20</span>
             <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс USDT</a>
           </div>
           <div class="service-card">
-            <span class="service-icon" style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.6);">BTC</span>
+            <span class="service-icon">₿</span>
             <span class="service-name">Обмен Bitcoin</span>
             <span class="service-tag">RUB ↔ BTC</span>
             <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс Bitcoin</a>
           </div>
           <div class="service-card">
-            <span class="service-icon" style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.6);">ETH</span>
+            <span class="service-icon">Ξ</span>
             <span class="service-name">Обмен Ethereum</span>
             <span class="service-tag">RUB ↔ ETH</span>
             <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс ETH</a>
@@ -432,7 +432,7 @@
             <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс SOL</a>
           </div>
           <div class="service-card">
-            <span class="service-icon" style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.6);">XRP</span>
+            <span class="service-icon">✕</span>
             <span class="service-name">Обмен XRP</span>
             <span class="service-tag">RUB ↔ XRP</span>
             <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс XRP</a>
@@ -450,7 +450,7 @@
             <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс AVAX</a>
           </div>
           <div class="service-card">
-            <span class="service-icon" style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.6);">DOGE</span>
+            <span class="service-icon">Ð</span>
             <span class="service-name">Обмен DOGE</span>
             <span class="service-tag">RUB ↔ DOGE</span>
             <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс DOGE</a>
@@ -872,7 +872,13 @@
       </button>
       <div class="call-modal-avatar">О</div>
       <div class="call-modal-name">Ольга</div>
-      <div class="call-modal-role">Менеджер онлайн · 10:00–19:00</div>
+      <div class="call-modal-badge" id="call-modal-badge">
+        <span class="badge-dot" id="call-modal-dot"></span>
+        <div class="call-modal-badge-text">
+          <span id="call-modal-status">Менеджер онлайн</span>
+          <span class="call-modal-badge-hours">Пн–Сб, 10:00–19:00 МСК</span>
+        </div>
+      </div>
       <div class="call-modal-phone">+7 937 336 3357</div>
       <a href="tel:+79373363357" class="btn-primary call-modal-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -934,8 +940,10 @@
     var cs=document.getElementById('cta-badge-status');
     if(cb)cb.classList.toggle('offline',!on);
     if(cs)cs.textContent=on?'Менеджер онлайн · ответит в течение минуты':'Сейчас офлайн · свяжитесь с 10:00 МСК';
-    var role=document.querySelector('.call-modal-role');
-    if(role)role.textContent=(on?'Менеджер онлайн · ':'Сейчас офлайн · ')+sched;
+    var mb=document.getElementById('call-modal-badge');
+    var ms=document.getElementById('call-modal-status');
+    if(mb)mb.classList.toggle('offline',!on);
+    if(ms)ms.textContent=on?'Менеджер онлайн':'Сейчас офлайн';
   }
   document.readyState==='loading'?document.addEventListener('DOMContentLoaded',upd):upd();
 })();
