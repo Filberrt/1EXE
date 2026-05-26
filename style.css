@@ -1746,6 +1746,10 @@ ol, ul { list-style: none; }
   .widget-actions { grid-template-columns: 1fr; }
   .widget-btn-outline { justify-content: center; }
 
+  /* Hero buttons — stack vertically, full width */
+  .hero-panel .btn-primary { width: 100%; justify-content: center; }
+  .hero-panel > div[style] { flex-direction: column !important; }
+
   /* Advantages — 2 columns */
   .adv-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .adv-card { padding: 18px 14px; gap: 10px; }
