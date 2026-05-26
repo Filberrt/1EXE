@@ -151,7 +151,7 @@
     .btn-ask-rate:hover { background: rgba(34,197,94,0.2); border-color: rgba(34,197,94,0.6); }
     .section-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
     .hero-content-solo { display: flex !important; justify-content: center; grid-template-columns: unset !important; }
-    .hero-content-solo .hero-panel { max-width: 680px; width: 100%; }
+    .hero-content-solo .hero-panel { max-width: 100%; width: 100%; }
   </style>
   <style>
     /* rebuild_v2 */
@@ -200,6 +200,21 @@
     .gallery-carousel-img { flex: 0 0 calc(50% - 6px); scroll-snap-align: start; border-radius: 16px; aspect-ratio: 3/4; object-fit: cover; display: block; }
     .gallery-carousel-nav { display: flex; justify-content: center; gap: 12px; margin-top: 14px; }
     @media (max-width: 600px) { .gallery-carousel-img { flex: 0 0 85%; } }
+  </style>
+  <style>
+    /* carousel-fix v4 */
+    .reviews-scroll-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; }
+    .reviews-scroll-track::-webkit-scrollbar { display: none; }
+    .articles-scroll-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; }
+    .articles-scroll-track::-webkit-scrollbar { display: none; }
+    /* gallery carousel explicit */
+    #gallery-track { display: flex !important; gap: 12px; overflow-x: auto !important; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    #gallery-track::-webkit-scrollbar { display: none; }
+    .gallery-carousel-img { flex: 0 0 calc(50% - 6px) !important; scroll-snap-align: start; border-radius: 16px; aspect-ratio: 3/4; object-fit: cover; display: block; }
+    @media (max-width: 600px) { .gallery-carousel-img { flex: 0 0 85% !important; } }
+    /* hero full-width fix */
+    .hero-content-solo { display: flex !important; justify-content: center; grid-template-columns: unset !important; }
+    .hero-content-solo .hero-panel { max-width: 100% !important; width: 100% !important; }
   </style>
 </head>
 <body>
@@ -719,6 +734,65 @@
 
 
     <!-- ═══════════════════════════════════════ FINAL CTA ═══ -->
+    <!-- REVIEWS -->
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Отзывы клиентов</h2>
+        </div>
+        <div class="reviews-carousel-wrap">
+          <div class="reviews-scroll-track" id="reviews-track">
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-text">«Отзыв появится здесь»</p>
+              <div class="review-author">— Клиент</div>
+            </div>
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-text">«Отзыв появится здесь»</p>
+              <div class="review-author">— Клиент</div>
+            </div>
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-text">«Отзыв появится здесь»</p>
+              <div class="review-author">— Клиент</div>
+            </div>
+          </div>
+          <div class="reviews-nav">
+            <button class="carousel-btn" onclick="reviewsScroll(-1)">←</button>
+            <a href="https://t.me/atomexchange_manager" class="btn-ask-rate" target="_blank" rel="noopener">Написать нам →</a>
+            <button class="carousel-btn" onclick="reviewsScroll(1)">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section class="section" id="articles">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Наши статьи</h2>
+        </div>
+        <div class="articles-scroll-track" id="articles-track">
+          <div class="article-card">
+            <div class="article-tag">Скоро</div>
+            <h3 class="article-title">Статья появится здесь</h3>
+            <p class="article-desc">Материал готовится к публикации.</p>
+          </div>
+          <div class="article-card">
+            <div class="article-tag">Скоро</div>
+            <h3 class="article-title">Статья появится здесь</h3>
+            <p class="article-desc">Материал готовится к публикации.</p>
+          </div>
+          <div class="article-card">
+            <div class="article-tag">Скоро</div>
+            <h3 class="article-title">Статья появится здесь</h3>
+            <p class="article-desc">Материал готовится к публикации.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="cta-section" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta-inner">
@@ -829,11 +903,18 @@
       </a>
     </div>
   </div>
-
-    <script>
+  <script>
     function reviewsScroll(dir) {
       var t = document.getElementById('reviews-track');
-      if (t) t.scrollBy({ left: dir * 320, behavior: 'smooth' });
+      if (t) { t.scrollLeft += dir * 320; }
+    }
+    function galleryScroll(dir) {
+      var t = document.getElementById('gallery-track');
+      if (t) { t.scrollLeft += dir * 360; }
+    }
+    function articlesScroll(dir) {
+      var t = document.getElementById('articles-track');
+      if (t) { t.scrollLeft += dir * 300; }
     }
   </script>
   <script src="script.js"></script>
