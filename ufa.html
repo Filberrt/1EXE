@@ -216,6 +216,12 @@
     .hero-content-solo { display: flex !important; justify-content: center; grid-template-columns: unset !important; }
     .hero-content-solo .hero-panel { max-width: 100% !important; width: 100% !important; }
   </style>
+  <style>
+    /* gallery-fix v6: landscape ratio */
+    .gallery-carousel-img { flex: 0 0 calc(50% - 6px) !important; scroll-snap-align: start; border-radius: 12px; aspect-ratio: 4/3 !important; object-fit: cover; display: block; }
+    @media (max-width: 600px) { .gallery-carousel-img { flex: 0 0 82% !important; } }
+    .gallery-carousel-wrap { overflow: hidden; border-radius: 12px; }
+  </style>
 </head>
 <body>
 
@@ -487,6 +493,30 @@
             <span class="service-tag">RUB ↔ SOL</span>
             <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс в моменте</a>
           </div>
+          <div class="service-card">
+            <span class="service-icon">✕</span>
+            <span class="service-name">Обмен XRP</span>
+            <span class="service-tag">RUB ↔ XRP</span>
+            <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс в моменте</a>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">⚡</span>
+            <span class="service-name">Обмен TRX</span>
+            <span class="service-tag">RUB ↔ TRX</span>
+            <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс в моменте</a>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">🔴</span>
+            <span class="service-name">Обмен AVAX</span>
+            <span class="service-tag">RUB ↔ AVAX</span>
+            <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс в моменте</a>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">Ð</span>
+            <span class="service-name">Обмен DOGE</span>
+            <span class="service-tag">RUB ↔ DOGE</span>
+            <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс в моменте</a>
+          </div>
         </div>
         </div>
       </div>
@@ -633,8 +663,8 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5b8aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           <strong>Уфа</strong> · Верхнеторговая площадь, 6
         </div>
-        <a href="https://yandex.com/maps/org/atom_exchange/158423731194/?ll=55.944020%2C54.724120&z=17.63" target="_blank" rel="noopener" style="font-size:13px;color:#5b8aff;opacity:0.75;display:inline-block;margin-bottom:12px;">📍 Открыть в Яндекс Картах ↗</a>
-        <div style="position:relative;"><div class="gallery-carousel-track" id="gallery-track">
+        <a href="https://yandex.com/maps/org/atom_exchange/158423731194/?ll=55.944020%2C54.724120&z=17.63" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;background:rgba(255,50,0,0.08);border:1px solid rgba(255,50,0,0.3);color:#ff3200;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:16px;">📍 Открыть в Яндекс Картах ↗</a>
+        <div style="position:relative;overflow:hidden;border-radius:12px;"><div class="gallery-carousel-track" id="gallery-track">
         <img class="gallery-carousel-img" src="photos/ufa/office_1.png" alt="Офис Уфа — фото 1" loading="lazy">
         <img class="gallery-carousel-img" src="photos/ufa/office_2.png" alt="Офис Уфа — фото 2" loading="lazy">
         <img class="gallery-carousel-img" src="photos/ufa/office_3.png" alt="Офис Уфа — фото 3" loading="lazy">
