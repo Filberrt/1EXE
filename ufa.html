@@ -193,6 +193,14 @@
       .office-features { grid-template-columns: 1fr 1fr; }
     }
   </style>
+  <style>
+    /* gallery carousel v3 */
+    .gallery-carousel-track { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 16px; }
+    .gallery-carousel-track::-webkit-scrollbar { display: none; }
+    .gallery-carousel-img { flex: 0 0 calc(50% - 6px); scroll-snap-align: start; border-radius: 16px; aspect-ratio: 3/4; object-fit: cover; display: block; }
+    .gallery-carousel-nav { display: flex; justify-content: center; gap: 12px; margin-top: 14px; }
+    @media (max-width: 600px) { .gallery-carousel-img { flex: 0 0 85%; } }
+  </style>
 </head>
 <body>
 
@@ -206,34 +214,6 @@
       <nav class="nav" aria-label="Основная навигация">
         <a href="#exchange" class="nav-link">Обменять</a>
         <a href="#office-gallery" class="nav-link">Офис</a>
-        <div class="nav-dropdown" id="nav-dropdown">
-          <button class="nav-link nav-dropdown-btn" id="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
-            Клиентам
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="nav-dropdown-arrow"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </button>
-          <div class="nav-dropdown-menu" id="nav-dropdown-menu" role="menu">
-            <a href="rieltory.html?from=ufa" class="nav-dropdown-item" role="menuitem">
-              <span class="ndi-icon">🏠</span>
-              <span class="ndi-text"><strong>Риелторам</strong><span>Крупные суммы наличными</span></span>
-            </a>
-            <a href="ved.html?from=ufa" class="nav-dropdown-item" role="menuitem">
-              <span class="ndi-icon">🌐</span>
-              <span class="ndi-text"><strong>ВЭД</strong><span>Расчёты с зарубежными поставщиками</span></span>
-            </a>
-            <a href="biznes.html?from=ufa" class="nav-dropdown-item" role="menuitem">
-              <span class="ndi-icon">💼</span>
-              <span class="ndi-text"><strong>Бизнесу</strong><span>Регулярные B2B операции</span></span>
-            </a>
-            <a href="perestanovka.html?from=ufa" class="nav-dropdown-item" role="menuitem">
-              <span class="ndi-icon">🔄</span>
-              <span class="ndi-text"><strong>Перестановка средств</strong><span>Отдали здесь — получили там</span></span>
-            </a>
-            <a href="perevody.html?from=ufa" class="nav-dropdown-item" role="menuitem">
-              <span class="ndi-icon">✈️</span>
-              <span class="ndi-text"><strong>Переводы за рубеж</strong><span>Без SWIFT, в любую страну</span></span>
-            </a>
-          </div>
-        </div>
       </nav>
 
       <div class="header-actions">
@@ -257,12 +237,6 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильное меню">
       <a href="#exchange" class="mobile-nav-link">Обменять</a>
       <a href="#office-gallery" class="mobile-nav-link">Офис</a>
-      <div class="mobile-nav-divider">Для вас</div>
-      <a href="rieltory.html?from=ufa" class="mobile-nav-link">🏠 Риелторам</a>
-      <a href="ved.html?from=ufa" class="mobile-nav-link">🌐 ВЭД</a>
-      <a href="biznes.html?from=ufa" class="mobile-nav-link">💼 Бизнесу</a>
-      <a href="perestanovka.html?from=ufa" class="mobile-nav-link">🔄 Перестановка средств</a>
-      <a href="perevody.html?from=ufa" class="mobile-nav-link">✈️ Переводы за рубеж</a>
       <button class="mobile-nav-link mobile-nav-call call-trigger">
         Позвонить: +7 937 336 3357
       </button>
@@ -549,7 +523,6 @@
           </div>
         </div>
       </div>
-<div class="section-cta-row"><a href="https://t.me/atomexchange_manager" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a><button class="btn-outline call-trigger">Позвонить</button></div>
     </section>
 
     <!-- ══════════════════════════════════════ ADVANTAGES ═══ -->
@@ -634,7 +607,6 @@
           </article>
         </div>
       </div>
-<div class="section-cta-row"><a href="https://t.me/atomexchange_manager" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a><button class="btn-outline call-trigger">Позвонить</button></div>
     </section>
 
 
@@ -646,14 +618,14 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5b8aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           <strong>Уфа</strong> · Верхнеторговая площадь, 6
         </div>
-        <div class="gallery-grid">
-        <img class="gallery-img" src="photos/ufa/office_1.png" alt="Офис Уфа — фото 1" loading="lazy">
-        <img class="gallery-img" src="photos/ufa/office_2.png" alt="Офис Уфа — фото 2" loading="lazy">
-        <img class="gallery-img" src="photos/ufa/office_3.png" alt="Офис Уфа — фото 3" loading="lazy">
-        <img class="gallery-img" src="photos/ufa/office_4.png" alt="Офис Уфа — фото 4" loading="lazy">
-        <img class="gallery-img" src="photos/ufa/office_5.png" alt="Офис Уфа — фото 5" loading="lazy">
-        <img class="gallery-img" src="photos/ufa/office_6.png" alt="Офис Уфа — фото 6" loading="lazy">
-        </div>
+        <div style="position:relative;"><div class="gallery-carousel-track" id="gallery-track">
+        <img class="gallery-carousel-img" src="photos/ufa/office_1.png" alt="Офис Уфа — фото 1" loading="lazy">
+        <img class="gallery-carousel-img" src="photos/ufa/office_2.png" alt="Офис Уфа — фото 2" loading="lazy">
+        <img class="gallery-carousel-img" src="photos/ufa/office_3.png" alt="Офис Уфа — фото 3" loading="lazy">
+        <img class="gallery-carousel-img" src="photos/ufa/office_4.png" alt="Офис Уфа — фото 4" loading="lazy">
+        <img class="gallery-carousel-img" src="photos/ufa/office_5.png" alt="Офис Уфа — фото 5" loading="lazy">
+        <img class="gallery-carousel-img" src="photos/ufa/office_6.png" alt="Офис Уфа — фото 6" loading="lazy">
+        </div><div class="gallery-carousel-nav"><button class="carousel-btn" onclick="galleryScroll(-1)">←</button><button class="carousel-btn" onclick="galleryScroll(1)">→</button></div></div>
         <!-- Feature teasers -->
         <div class="office-features">
           <div class="office-feature">
