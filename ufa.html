@@ -629,10 +629,11 @@
       <div class="container">
         <p class="sub-kicker">Фото офиса</p>
         <h2 class="sub-big-title">Наш офис</h2>
-        <div class="gallery-address">
+        <div class="gallery-address" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5b8aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           <strong>Уфа</strong> · Верхнеторговая площадь, 6
         </div>
+        <a href="https://yandex.com/maps/org/atom_exchange/158423731194/?ll=55.944020%2C54.724120&z=17.63" target="_blank" rel="noopener" style="font-size:13px;color:#5b8aff;opacity:0.75;display:inline-block;margin-bottom:12px;">📍 Открыть в Яндекс Картах ↗</a>
         <div style="position:relative;"><div class="gallery-carousel-track" id="gallery-track">
         <img class="gallery-carousel-img" src="photos/ufa/office_1.png" alt="Офис Уфа — фото 1" loading="lazy">
         <img class="gallery-carousel-img" src="photos/ufa/office_2.png" alt="Офис Уфа — фото 2" loading="lazy">
@@ -893,15 +894,31 @@
   <script>
     function reviewsScroll(dir) {
       var t = document.getElementById('reviews-track');
-      if (t) { t.scrollLeft += dir * 320; }
+      if (!t) return;
+      var card = t.querySelector('.review-card');
+      var step = card ? card.offsetWidth + 16 : 320;
+      t.scrollLeft += dir * step;
     }
     function galleryScroll(dir) {
       var t = document.getElementById('gallery-track');
-      if (t) { t.scrollLeft += dir * 360; }
+      if (!t) return;
+      var img = t.querySelector('img');
+      var step = img ? img.offsetWidth + 12 : 300;
+      t.scrollLeft += dir * step;
     }
     function articlesScroll(dir) {
       var t = document.getElementById('articles-track');
-      if (t) { t.scrollLeft += dir * 300; }
+      if (!t) return;
+      var card = t.querySelector('.article-card');
+      var step = card ? card.offsetWidth + 16 : 280;
+      t.scrollLeft += dir * step;
+    }
+    function officeScroll(dir) {
+      var t = document.getElementById('office-photo-track');
+      if (!t) return;
+      var img = t.querySelector('img');
+      var step = img ? img.offsetWidth + 12 : 320;
+      t.scrollLeft += dir * step;
     }
   </script>
   <script src="script.js"></script>

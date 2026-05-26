@@ -441,15 +441,31 @@
   <script>
     function reviewsScroll(dir) {
       var t = document.getElementById('reviews-track');
-      if (t) { t.scrollLeft += dir * 320; }
+      if (!t) return;
+      var card = t.querySelector('.review-card');
+      var step = card ? card.offsetWidth + 16 : 320;
+      t.scrollLeft += dir * step;
     }
     function galleryScroll(dir) {
       var t = document.getElementById('gallery-track');
-      if (t) { t.scrollLeft += dir * 360; }
+      if (!t) return;
+      var img = t.querySelector('img');
+      var step = img ? img.offsetWidth + 12 : 300;
+      t.scrollLeft += dir * step;
     }
     function articlesScroll(dir) {
       var t = document.getElementById('articles-track');
-      if (t) { t.scrollLeft += dir * 300; }
+      if (!t) return;
+      var card = t.querySelector('.article-card');
+      var step = card ? card.offsetWidth + 16 : 280;
+      t.scrollLeft += dir * step;
+    }
+    function officeScroll(dir) {
+      var t = document.getElementById('office-photo-track');
+      if (!t) return;
+      var img = t.querySelector('img');
+      var step = img ? img.offsetWidth + 12 : 320;
+      t.scrollLeft += dir * step;
     }
   </script>
   <script src="script.js"></script>

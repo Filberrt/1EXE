@@ -355,7 +355,7 @@
               <span class="founder-name">Александр Банаев</span>
               <span class="founder-role">Основатель Atom Exchange</span>
             </div>
-            <div style="margin-top:20px;"><a href="https://t.me/atomexchange_manager" class="btn-primary" target="_blank" rel="noopener">Связаться с Александром</a></div>
+            <div style="margin-top:20px;"><a href="https://t.me/Banaev_as" class="btn-primary" target="_blank" rel="noopener">Связаться с Александром</a></div>
           </div>
         </div>
       </div>
@@ -402,6 +402,30 @@
             <span class="service-icon">🌊</span>
             <span class="service-name">Обмен SOL</span>
             <span class="service-tag">RUB ↔ SOL</span>
+            <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс в моменте</a>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">✕</span>
+            <span class="service-name">Обмен XRP</span>
+            <span class="service-tag">RUB ↔ XRP</span>
+            <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс в моменте</a>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">⚡</span>
+            <span class="service-name">Обмен TRX</span>
+            <span class="service-tag">RUB ↔ TRX</span>
+            <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс в моменте</a>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">🔴</span>
+            <span class="service-name">Обмен AVAX</span>
+            <span class="service-tag">RUB ↔ AVAX</span>
+            <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс в моменте</a>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">Ð</span>
+            <span class="service-name">Обмен DOGE</span>
+            <span class="service-tag">RUB ↔ DOGE</span>
             <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс в моменте</a>
           </div>
         </div>
@@ -631,6 +655,7 @@
             <p class="office-detail">Верхнеторговая площадь, 6, офис 2.5</p>
             <p class="office-note">Прямой обмен · без посредников</p>
             <a href="ufa.html" class="office-link">Страница офиса →</a>
+            <a href="https://yandex.com/maps/org/atom_exchange/158423731194/?ll=55.944020%2C54.724120&z=17.63" class="office-link" target="_blank" rel="noopener" style="opacity:0.65;font-size:13px;">Открыть в Яндекс Картах ↗</a>
           </article>
           <article class="office-card">
             <h3 class="office-city">Казань</h3>
@@ -638,6 +663,7 @@
             <p class="office-detail">ул. Баумана 9А, офис 207</p>
             <p class="office-note">Прямой обмен · без посредников</p>
             <a href="kazan.html" class="office-link">Страница офиса →</a>
+            <a href="https://yandex.com/maps/org/atom_exchange/29547548182/?ll=49.110706%2C55.792893&z=17.63" class="office-link" target="_blank" rel="noopener" style="opacity:0.65;font-size:13px;">Открыть в Яндекс Картах ↗</a>
           </article>
           <article class="office-card">
             <h3 class="office-city">Екатеринбург</h3>
@@ -823,15 +849,31 @@
   <script>
     function reviewsScroll(dir) {
       var t = document.getElementById('reviews-track');
-      if (t) { t.scrollLeft += dir * 320; }
+      if (!t) return;
+      var card = t.querySelector('.review-card');
+      var step = card ? card.offsetWidth + 16 : 320;
+      t.scrollLeft += dir * step;
     }
     function galleryScroll(dir) {
       var t = document.getElementById('gallery-track');
-      if (t) { t.scrollLeft += dir * 360; }
+      if (!t) return;
+      var img = t.querySelector('img');
+      var step = img ? img.offsetWidth + 12 : 300;
+      t.scrollLeft += dir * step;
     }
     function articlesScroll(dir) {
       var t = document.getElementById('articles-track');
-      if (t) { t.scrollLeft += dir * 300; }
+      if (!t) return;
+      var card = t.querySelector('.article-card');
+      var step = card ? card.offsetWidth + 16 : 280;
+      t.scrollLeft += dir * step;
+    }
+    function officeScroll(dir) {
+      var t = document.getElementById('office-photo-track');
+      if (!t) return;
+      var img = t.querySelector('img');
+      var step = img ? img.offsetWidth + 12 : 320;
+      t.scrollLeft += dir * step;
     }
   </script>
   <script src="script.js"></script>
