@@ -1043,9 +1043,9 @@
 (function(){
   function upd(){
     var now=new Date();
-    var msk=new Date(now.getTime()+(now.getTimezoneOffset()+180)*60000);
-    var day=msk.getDay();
-    var mins=msk.getHours()*60+msk.getMinutes();
+    var msk=new Date(now.getTime()+3*3600000);
+    var day=msk.getUTCDay();
+    var mins=msk.getUTCHours()*60+msk.getUTCMinutes();
     var on=day>=1&&day<=6&&mins>=600&&mins<1140;
     var sched='Пн–Сб, 10:00–19:00 МСК';
     var hb=document.getElementById('hero-badge');

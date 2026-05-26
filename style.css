@@ -203,6 +203,11 @@ ol, ul { list-style: none; }
   flex-shrink: 0;
   margin-top: 5px; /* выравниваем с первой строкой двустрочного badge */
 }
+.hero-badge.offline .badge-dot,
+.cta-badge.offline .badge-dot {
+  background: #ef4444;
+  animation: none;
+}
 @keyframes pulse-dot {
   0%, 100% { opacity: 0.5; transform: scale(1); }
   50%       { opacity: 1;   transform: scale(1.35); }
