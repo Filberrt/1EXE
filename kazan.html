@@ -176,6 +176,23 @@
     .article-title { font-size: 16px; font-weight: 700; color: #f0f0f0; margin: 0 0 10px; line-height: 1.4; }
     .article-desc { font-size: 13px; color: rgba(240,240,240,0.55); line-height: 1.5; margin: 0; }
   </style>
+  <style>
+    /* office photo carousel */
+    .office-photo-carousel { position: relative; margin-bottom: 32px; }
+    .office-photo-track { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 16px; }
+    .office-photo-track::-webkit-scrollbar { display: none; }
+    .office-photo-slide { flex: 0 0 calc(50% - 6px); scroll-snap-align: start; border-radius: 16px; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    .office-photo-nav { display: flex; justify-content: center; gap: 12px; margin-top: 14px; }
+    /* office features */
+    .office-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px; }
+    .office-feature { background: #0c0c0c; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 18px 16px; display: flex; align-items: center; gap: 12px; }
+    .office-feature-icon { font-size: 22px; flex-shrink: 0; }
+    .office-feature-text { font-size: 13px; font-weight: 600; color: rgba(240,240,240,0.8); line-height: 1.4; }
+    @media (max-width: 700px) {
+      .office-photo-slide { flex: 0 0 85%; }
+      .office-features { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -636,6 +653,33 @@
         <img class="gallery-img" src="photos/kazan/office_4.png" alt="Офис Казань — фото 4" loading="lazy">
         <img class="gallery-img" src="photos/kazan/office_5.png" alt="Офис Казань — фото 5" loading="lazy">
         <img class="gallery-img" src="photos/kazan/office_6.png" alt="Офис Казань — фото 6" loading="lazy">
+        </div>
+        <!-- Feature teasers -->
+        <div class="office-features">
+          <div class="office-feature">
+            <span class="office-feature-icon">👥</span>
+            <span class="office-feature-text">Подходим всем: новичкам и опытным</span>
+          </div>
+          <div class="office-feature">
+            <span class="office-feature-icon">🔒</span>
+            <span class="office-feature-text">Безопасно и конфиденциально</span>
+          </div>
+          <div class="office-feature">
+            <span class="office-feature-icon">💰</span>
+            <span class="office-feature-text">С нами выгодно</span>
+          </div>
+          <div class="office-feature">
+            <span class="office-feature-icon">⏱</span>
+            <span class="office-feature-text">С заботой о времени</span>
+          </div>
+          <div class="office-feature">
+            <span class="office-feature-icon">🏆</span>
+            <span class="office-feature-text">Большая команда с отлаженными процессами</span>
+          </div>
+          <div class="office-feature">
+            <span class="office-feature-icon">⭐</span>
+            <span class="office-feature-text">Высокий сервис</span>
+          </div>
         </div>
       </div>
     </section>

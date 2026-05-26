@@ -102,6 +102,23 @@
     .article-title { font-size: 16px; font-weight: 700; color: #f0f0f0; margin: 0 0 10px; line-height: 1.4; }
     .article-desc { font-size: 13px; color: rgba(240,240,240,0.55); line-height: 1.5; margin: 0; }
   </style>
+  <style>
+    /* office photo carousel */
+    .office-photo-carousel { position: relative; margin-bottom: 32px; }
+    .office-photo-track { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 16px; }
+    .office-photo-track::-webkit-scrollbar { display: none; }
+    .office-photo-slide { flex: 0 0 calc(50% - 6px); scroll-snap-align: start; border-radius: 16px; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    .office-photo-nav { display: flex; justify-content: center; gap: 12px; margin-top: 14px; }
+    /* office features */
+    .office-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px; }
+    .office-feature { background: #0c0c0c; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 18px 16px; display: flex; align-items: center; gap: 12px; }
+    .office-feature-icon { font-size: 22px; flex-shrink: 0; }
+    .office-feature-text { font-size: 13px; font-weight: 600; color: rgba(240,240,240,0.8); line-height: 1.4; }
+    @media (max-width: 700px) {
+      .office-photo-slide { flex: 0 0 85%; }
+      .office-features { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -545,64 +562,64 @@
 <div class="section-cta-row"><a href="https://t.me/atomexchange_manager" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a><button class="btn-outline call-trigger">Позвонить</button></div>
     </section>
 
-    <!-- ═══════════════════════════════════════ OFFICES / MAP ═══ -->
+    <!-- ═══════════════════════════════════════ OFFICES ═══ -->
     <section class="section offices" id="offices" aria-labelledby="offices-title">
       <div class="container">
         <div class="section-head">
-          <h2 class="section-title" id="offices-title">Собственные офисы</h2>
+          <h2 class="section-title" id="offices-title">Наши офисы</h2>
         </div>
 
-        <!-- Map -->
-        <div class="map-wrap" role="img" aria-label="Карта офисов Atom Exchange в России">
-          <canvas id="map-canvas" aria-hidden="true"></canvas>
-
-          <!-- City pins -->
-          <div class="map-pin p-ufa" data-city="ufa" tabindex="0" role="button" aria-label="Офис в Уфе">
-            <span class="pin-dot"></span>
-            Уфа
+        <!-- Photo carousel -->
+        <div class="office-photo-carousel">
+          <div class="office-photo-track" id="office-photo-track">
+            <img class="office-photo-slide" src="photos/ufa/office_1.png" alt="Офис Уфа" loading="lazy">
+            <img class="office-photo-slide" src="photos/ufa/office_2.png" alt="Офис Уфа" loading="lazy">
+            <img class="office-photo-slide" src="photos/ufa/office_3.png" alt="Офис Уфа" loading="lazy">
+            <img class="office-photo-slide" src="photos/ufa/office_4.png" alt="Офис Уфа" loading="lazy">
+            <img class="office-photo-slide" src="photos/ufa/office_5.png" alt="Офис Уфа" loading="lazy">
+            <img class="office-photo-slide" src="photos/ufa/office_6.png" alt="Офис Уфа" loading="lazy">
+            <img class="office-photo-slide" src="photos/kazan/office_1.png" alt="Офис Казань" loading="lazy">
+            <img class="office-photo-slide" src="photos/kazan/office_2.png" alt="Офис Казань" loading="lazy">
+            <img class="office-photo-slide" src="photos/kazan/office_3.png" alt="Офис Казань" loading="lazy">
+            <img class="office-photo-slide" src="photos/kazan/office_4.png" alt="Офис Казань" loading="lazy">
+            <img class="office-photo-slide" src="photos/kazan/office_5.png" alt="Офис Казань" loading="lazy">
+            <img class="office-photo-slide" src="photos/kazan/office_6.png" alt="Офис Казань" loading="lazy">
           </div>
-          <div class="map-pin p-kzn" data-city="kazan" tabindex="0" role="button" aria-label="Офис в Казани">
-            <span class="pin-dot"></span>
-            Казань
-          </div>
-          <div class="map-pin p-ekb" data-city="ekb" tabindex="0" role="button" aria-label="Офис в Екатеринбурге">
-            <span class="pin-dot"></span>
-            Екатеринбург
-          </div>
-
-          <!-- Popups -->
-          <div class="map-popup" id="popup-ufa" role="dialog" aria-label="Офис Уфа">
-            <div class="popup-city">Уфа</div>
-            <div class="popup-addr">Верхнеторговая площадь, 6, офис 2.5</div>
-            <div class="popup-hours" id="status-ufa">
-              <span class="hours-dot"></span>
-              <span class="hours-text">Пн–Сб: 10:00–19:00</span>
-            </div>
-            <a href="ufa.html" class="popup-link">Перейти на страницу →</a>
-          </div>
-
-          <div class="map-popup" id="popup-kazan" role="dialog" aria-label="Офис Казань">
-            <div class="popup-city">Казань</div>
-            <div class="popup-addr">ул. Баумана 9А, 2 этаж, офис 207</div>
-            <div class="popup-hours" id="status-kazan">
-              <span class="hours-dot"></span>
-              <span class="hours-text">Пн–Сб: 10:00–19:00</span>
-            </div>
-            <a href="kazan.html" class="popup-link">Перейти на страницу →</a>
-          </div>
-
-          <div class="map-popup" id="popup-ekb" role="dialog" aria-label="Офис Екатеринбург">
-            <div class="popup-city">Екатеринбург</div>
-            <div class="popup-addr">Радищева 6А, 11 этаж, офис 21103</div>
-            <div class="popup-hours" id="status-ekb">
-              <span class="hours-dot"></span>
-              <span class="hours-text">Пн–Сб: 10:00–19:00</span>
-            </div>
-            <a href="ekb.html" class="popup-link">Перейти на страницу →</a>
+          <div class="office-photo-nav">
+            <button class="carousel-btn" onclick="officeScroll(-1)">←</button>
+            <button class="carousel-btn" onclick="officeScroll(1)">→</button>
           </div>
         </div>
 
-        <!-- Office cards under map -->
+        <!-- Feature teasers -->
+        <div class="office-features">
+          <div class="office-feature">
+            <span class="office-feature-icon">👥</span>
+            <span class="office-feature-text">Подходим всем: новичкам и опытным</span>
+          </div>
+          <div class="office-feature">
+            <span class="office-feature-icon">🔒</span>
+            <span class="office-feature-text">Безопасно и конфиденциально</span>
+          </div>
+          <div class="office-feature">
+            <span class="office-feature-icon">💰</span>
+            <span class="office-feature-text">С нами выгодно</span>
+          </div>
+          <div class="office-feature">
+            <span class="office-feature-icon">⏱</span>
+            <span class="office-feature-text">С заботой о времени</span>
+          </div>
+          <div class="office-feature">
+            <span class="office-feature-icon">🏆</span>
+            <span class="office-feature-text">Большая команда с отлаженными процессами</span>
+          </div>
+          <div class="office-feature">
+            <span class="office-feature-icon">⭐</span>
+            <span class="office-feature-text">Высокий сервис</span>
+          </div>
+        </div>
+
+        <!-- Office address cards -->
         <div class="office-cards">
           <article class="office-card">
             <h3 class="office-city">Уфа</h3>
