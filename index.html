@@ -925,7 +925,7 @@
     var day=msk.getUTCDay();
     var mins=msk.getUTCHours()*60+msk.getUTCMinutes();
     var on=day>=1&&day<=6&&mins>=600&&mins<1140;
-    var sched='Пн–Сб, 10:00–19:00 МСК';
+    var sched='Пн-Сб, 10:00-19:00 МСК';
     var hb=document.getElementById('hero-badge');
     var hs=document.getElementById('hero-badge-status');
     if(hb)hb.classList.toggle('offline',!on);
@@ -936,8 +936,10 @@
     if(cs)cs.textContent=on?'Менеджер онлайн · ответит в течение минуты':'Сейчас офлайн · свяжитесь с 10:00 МСК';
     var mb=document.getElementById('call-modal-badge');
     var ms=document.getElementById('call-modal-status');
+    var dot=mb?mb.querySelector('.badge-dot'):null;
     if(mb)mb.classList.toggle('offline',!on);
     if(ms)ms.textContent=on?'Менеджер онлайн':'Сейчас офлайн';
+    if(dot){dot.style.background=on?'':'#ef4444';dot.style.animation=on?'':'none';}
   }
   document.readyState==='loading'?document.addEventListener('DOMContentLoaded',upd):upd();
 })();
