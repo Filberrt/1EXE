@@ -134,6 +134,21 @@
     .hero-content-solo { display: flex !important; justify-content: center; grid-template-columns: unset !important; }
     .hero-content-solo .hero-panel { max-width: 100% !important; width: 100% !important; }
   </style>
+  <style>
+    /* founder-fix v7 */
+    .founder-photo { width: 240px !important; height: 320px !important; border-radius: 20px !important; object-fit: cover !important; object-position: center top !important; flex-shrink: 0 !important; }
+    @media (max-width: 900px) {
+      .founder-photo { width: 100% !important; height: 220px !important; border-radius: 16px !important; }
+      .founder-card { align-items: flex-start !important; }
+      .founder-quote { font-size: 15px !important; }
+    }
+  </style>
+  <style>
+    /* hero-mobile-fix v7 */
+    @media (max-width: 768px) {
+      .hero { min-height: auto !important; align-items: flex-start !important; padding-top: 96px !important; padding-bottom: 48px !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -350,7 +365,7 @@
         <div class="founder-card">
           <img src="man.jpg" alt="Основатель Atom Exchange" class="founder-photo">
           <div class="founder-body">
-            <p class="founder-quote">«Крупный финансовый бизнес строится не на шуме, а на доверии. Мы создаём криптобанк №1 в России: с понятным курсом, реальными офисами, прозрачными условиями и ответственностью перед каждым клиентом.»</p>
+            <p class="founder-quote">«Крупный финансовый бизнес строится не на шуме, а на доверии.<br><br>Мы создаём криптобанк №1 в России: с понятным курсом, реальными офисами, прозрачными условиями и ответственностью перед каждым клиентом.»</p>
             <div class="founder-sig">
               <span class="founder-name">Александр Банаев</span>
               <span class="founder-role">Основатель Atom Exchange</span>

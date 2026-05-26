@@ -222,6 +222,37 @@
     @media (max-width: 600px) { .gallery-carousel-img { flex: 0 0 82% !important; } }
     .gallery-carousel-wrap { overflow: hidden; border-radius: 12px; }
   </style>
+  <style>
+    /* hero-mobile-fix v7 */
+    @media (max-width: 768px) {
+      .hero { min-height: auto !important; align-items: flex-start !important; padding-top: 96px !important; padding-bottom: 48px !important; }
+    }
+  </style>
+  <style>
+    /* gallery-mobile-fix v7 */
+    #gallery-track { width: 100% !important; box-sizing: border-box; }
+    @media (max-width: 600px) {
+      .gallery-carousel-img { flex: 0 0 78vw !important; max-width: 78vw !important; min-width: 0 !important; aspect-ratio: 4/3 !important; }
+    }
+    @media (min-width: 601px) {
+      .gallery-carousel-img { flex: 0 0 calc(48% - 6px) !important; max-width: calc(48% - 6px) !important; aspect-ratio: 4/3 !important; }
+    }
+  </style>
+  <style>
+    /* sub-steps-mobile v7 */
+    @media (max-width: 700px) {
+      .sub-steps-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+      .sub-step-card { flex-direction: row !important; align-items: stretch !important; min-height: 110px; }
+      .sub-step-photo { width: 110px !important; min-width: 110px !important; flex-shrink: 0 !important; }
+      .sub-step-photo img { height: 100% !important; min-height: 110px !important; width: 100% !important; object-fit: cover !important; }
+      .sub-step-body { padding: 14px 14px 14px !important; display: flex; flex-direction: column; justify-content: center; }
+      .sub-step-badge { font-size: 22px !important; }
+      .sub-step-tag { font-size: 9px !important; }
+      .sub-step-title { font-size: 13px !important; margin-bottom: 4px !important; }
+      .sub-step-text { font-size: 11px !important; }
+      .sub-step-overlay { padding: 8px !important; gap: 4px !important; }
+    }
+  </style>
 </head>
 <body>
 
