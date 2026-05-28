@@ -135,19 +135,14 @@
     .hero-content-solo .hero-panel { max-width: 100% !important; width: 100% !important; }
   </style>
   <style>
-    /* founder-fix v8 */
+    /* founder-fix v9 */
     .founder-photo { width: 310px !important; height: 410px !important; border-radius: 20px !important; object-fit: cover !important; object-position: center top !important; flex-shrink: 0 !important; }
     @media (max-width: 900px) {
-      .founder-card { flex-direction: row !important; align-items: flex-start !important; padding: 20px !important; gap: 16px !important; }
-      .founder-photo { width: 155px !important; height: 205px !important; border-radius: 14px !important; }
-      .founder-body { text-align: left !important; flex: 1 !important; min-width: 0 !important; }
+      .founder-card { flex-direction: column !important; align-items: flex-start !important; padding: 20px !important; gap: 20px !important; }
+      .founder-photo { width: 100% !important; height: 280px !important; border-radius: 14px !important; object-position: center 10% !important; }
+      .founder-body { text-align: left !important; width: 100% !important; min-width: 0 !important; }
       .founder-quote { font-size: 13px !important; text-align: left !important; }
       .founder-sig { text-align: left !important; }
-    }
-    @media (max-width: 480px) {
-      .founder-card { padding: 14px !important; gap: 12px !important; }
-      .founder-photo { width: 120px !important; height: 158px !important; border-radius: 12px !important; }
-      .founder-quote { font-size: 12px !important; }
     }
   </style>
   <style>
@@ -411,7 +406,9 @@
               <span class="service-tag" style="margin:0;">рубли → USDT</span>
               <span style="font-size:11px;color:rgba(240,240,240,0.35);margin-top:2px;">TRC-20 · ERC-20</span>
             </div>
-            <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс USDT</a>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:auto;">
+              <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс USDT</a>
+            </div>
           </div>
 
           <!-- Другая крипта -->
