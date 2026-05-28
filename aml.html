@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AML-политика — АТОМ, криптобанк</title>
+  <meta name="description" content="AML/KYC политика АТОМ, криптобанк. Процедуры противодействия отмыванию денег и проверки транзакций." />
+  <link rel="canonical" href="https://atom-exchange.ru/aml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <style>
+    .doc-header {
+      padding: 80px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .doc-header-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-3);
+      text-decoration: none;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .doc-header-back:hover { color: var(--text-1); }
+    .doc-title {
+      font-family: var(--font-h);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: var(--text-1);
+      margin-bottom: 12px;
+    }
+    .doc-meta { font-size: 14px; color: var(--text-3); }
+    .doc-body {
+      padding: 48px 0 80px;
+      max-width: 760px;
+    }
+    .doc-section { margin-bottom: 40px; }
+    .doc-section-title {
+      font-family: var(--font-h);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .doc-body p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-2);
+      margin-bottom: 12px;
+    }
+    .doc-body ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    .doc-body ul li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-2);
+      margin-bottom: 6px;
+    }
+    .doc-body strong { color: var(--text-1); font-weight: 600; }
+    .aml-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #22c55e;
+      margin-bottom: 24px;
+    }
+    .risk-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    .risk-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-1);
+      font-weight: 700;
+      font-family: var(--font-h);
+    }
+    .risk-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      color: var(--text-2);
+      vertical-align: top;
+    }
+    .risk-high { color: #ef4444; font-weight: 600; }
+    .risk-mid  { color: #f59e0b; font-weight: 600; }
+    .risk-low  { color: #22c55e; font-weight: 600; }
+    .doc-contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px 28px;
+      margin-top: 40px;
+    }
+    .doc-contact-box p { margin-bottom: 0; }
+    .doc-contact-box a { color: var(--blue); }
+    .doc-contact-box a:hover { color: var(--blue-h); }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container">
+      <a href="/" class="logo" aria-label="АТОМ, криптобанк — на главную">
+        <img src="Logo_Atom.png" alt="АТОМ, криптобанк" class="logo-img">
+      </a>
+      <div class="header-actions">
+        <a href="https://t.me/atomexchange_manager" class="btn-tg" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
+          Написать
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="doc-header">
+      <div class="container">
+        <a href="/" class="doc-header-back">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          На главную
+        </a>
+        <h1 class="doc-title">AML/KYC-политика</h1>
+        <p class="doc-meta">Дата вступления в силу: 1 января 2025 года</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="doc-body">
+
+        <div class="aml-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Соответствие стандартам FATF и российскому законодательству
+        </div>
+
+        <div class="doc-section">
+          <h2 class="doc-section-title">1. Общие положения</h2>
+          <p><strong>АТОМ, криптобанк</strong> (далее — «Компания») придерживается политики нулевой терпимости к отмыванию денег, финансированию терроризма и иным незаконным финансовым операциям.</p>
+          <p>Настоящая политика разработана в соответствии с рекомендациями FATF (Группа разработки финансовых мер борьбы с отмыванием денег), требованиями OFAC, а также законодательством Российской Федерации, включая Федеральный закон № 115-ФЗ «О противодействии легализации (отмыванию) доходов, полученных преступным путём».</p>
+          <p>Все сотрудники Компании обязаны соблюдать настоящую политику. Нарушение влечёт немедленное прекращение трудовых отношений и возможное уведомление правоохранительных органов.</p>
+        </div>
+
+        <div class="doc-section">
+          <h2 class="doc-section-title">2. Идентификация клиентов (KYC)</h2>
+          <p>Перед проведением любой операции Компания осуществляет обязательную идентификацию клиента:</p>
+          <ul>
+            <li>Проверка документа, удостоверяющего личность (паспорт гражданина РФ или иной документ)</li>
+            <li>Фиксация ФИО, даты рождения и паспортных данных</li>
+            <li>Проверка по санкционным спискам (OFAC SDN, ООН, ЕС)</li>
+            <li>Оценка деловой репутации при крупных или повторных операциях</li>
+          </ul>
+          <p>Компания вправе запросить дополнительные документы, подтверждающие происхождение средств, при операциях на сумму, превышающую установленные пороговые значения.</p>
+        </div>
+
+        <div class="doc-section">
+          <h2 class="doc-section-title">3. Проверка транзакций (KYT)</h2>
+          <p>Все входящие криптовалютные транзакции проходят обязательную проверку с использованием сертифицированных инструментов блокчейн-аналитики. Проверяются:</p>
+          <ul>
+            <li>Адреса отправителя на связь с санкционными, мошенническими и высокорисковыми источниками</li>
+            <li>Уровень риска средств (Risk Score) по методологии ведущих аналитических провайдеров</li>
+            <li>Цепочка транзакций (chain of custody) для выявления косвенной связи с незаконной деятельностью</li>
+          </ul>
+          <p>Выплаты клиентам осуществляются исключительно с уникальных (одноразовых) криптоадресов или адресов, классифицированных как низкорисковые.</p>
+        </div>
+
+        <div class="doc-section">
+          <h2 class="doc-section-title">4. Уровни риска</h2>
+          <table class="risk-table">
+            <thead>
+              <tr>
+                <th>Уровень риска</th>
+                <th>Источник средств</th>
+                <th>Решение</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="risk-low">Низкий</td>
+                <td>Лицензированные биржи, личные кошельки с чистой историей</td>
+                <td>Операция проводится</td>
+              </tr>
+              <tr>
+                <td class="risk-mid">Средний</td>
+                <td>P2P-платформы, неизвестные источники</td>
+                <td>Дополнительная проверка, запрос документов</td>
+              </tr>
+              <tr>
+                <td class="risk-high">Высокий</td>
+                <td>Даркнет, миксеры, санкционные адреса, казино, мошенничество</td>
+                <td>Отказ в проведении операции</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Компания не проводит операции со средствами высокого риска вне зависимости от суммы и иных обстоятельств.</p>
+        </div>
+
+        <div class="doc-section">
+          <h2 class="doc-section-title">5. Запрещённые источники средств</h2>
+          <p>Компания категорически отказывает в обслуживании, если средства связаны с:</p>
+          <ul>
+            <li>Даркнет-маркетплейсами (Hydra, OMG, Kraken и аналогами)</li>
+            <li>Криптовалютными миксерами и анонимайзерами (Tornado Cash и аналогами)</li>
+            <li>Адресами из санкционных списков OFAC, ЕС, ООН</li>
+            <li>Мошенническими схемами, фишингом, скамом</li>
+            <li>Ransomware (программы-вымогатели)</li>
+            <li>Незаконными азартными играми</li>
+            <li>Финансированием терроризма</li>
+          </ul>
+        </div>
+
+        <div class="doc-section">
+          <h2 class="doc-section-title">6. Мониторинг операций</h2>
+          <p>Компания ведёт постоянный мониторинг операций с целью выявления подозрительной активности, включая:</p>
+          <ul>
+            <li>Операции, не соответствующие профилю клиента</li>
+            <li>Дробление крупных сумм на несколько операций</li>
+            <li>Отказ клиента от предоставления документов</li>
+            <li>Нестандартные схемы и маршруты движения средств</li>
+          </ul>
+          <p>При выявлении признаков подозрительной операции Компания вправе приостановить её и провести расширенную проверку.</p>
+        </div>
+
+        <div class="doc-section">
+          <h2 class="doc-section-title">7. Хранение документов</h2>
+          <p>В соответствии с требованиями законодательства Компания хранит документы, связанные с проведёнными операциями, в течение 5 лет с момента проведения операции.</p>
+          <p>Хранение осуществляется в защищённом формате с ограниченным доступом уполномоченных сотрудников.</p>
+        </div>
+
+        <div class="doc-section">
+          <h2 class="doc-section-title">8. Взаимодействие с регуляторами</h2>
+          <p>Компания сотрудничает с уполномоченными государственными органами в рамках действующего законодательства, предоставляя информацию по официальным запросам.</p>
+          <p>При наличии оснований полагать, что операция связана с незаконной деятельностью, Компания уведомляет соответствующие органы в установленном законом порядке.</p>
+        </div>
+
+        <div class="doc-section">
+          <h2 class="doc-section-title">9. Обновление политики</h2>
+          <p>Настоящая AML/KYC-политика пересматривается не реже одного раза в год и обновляется при изменении требований законодательства или международных стандартов. Актуальная версия всегда размещена на сайте.</p>
+        </div>
+
+        <div class="doc-contact-box">
+          <p>По вопросам AML/KYC-политики обращайтесь:<br>
+          Telegram: <a href="https://t.me/atomexchange_manager" target="_blank" rel="noopener">@atomexchange_manager</a><br>
+          Телефон: <a href="tel:+79373363357">+7 937 336 3357</a></p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2024–2026 Atom Exchange. Все права защищены.</p>
+        <div class="footer-docs">
+          <a href="agreement.html" class="footer-doc-link">Пользовательское соглашение</a>
+          <a href="privacy.html" class="footer-doc-link">Политика конфиденциальности</a>
+          <a href="aml.html" class="footer-doc-link">AML-политика</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  </script>
+</body>
+</html>
