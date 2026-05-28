@@ -161,9 +161,6 @@
   .offices-grid-wrap{grid-template-columns:1fr !important;}
   .office-map-btn{font-size:11px !important;padding:7px 10px !important;white-space:nowrap;}
 }
-@media(max-width:600px){
-  .services-grid{grid-template-columns:1fr !important;}
-}
 </style>
 </head>
 <body>
@@ -401,32 +398,36 @@
                 <div class="services-grid" style="grid-template-columns:repeat(2,1fr);max-width:740px;margin:0 auto;">
 
           <!-- USDT -->
-          <div class="service-card" style="padding:32px 28px;">
-            <span class="service-icon" style="font-size:28px;">₮</span>
-            <span class="service-name" style="font-size:18px;">Обмен USDT</span>
-            <div style="display:flex;flex-direction:column;gap:4px;margin:8px 0;">
-              <span class="service-tag" style="margin:0;">USDT → рубли</span>
-              <span class="service-tag" style="margin:0;">рубли → USDT</span>
-              <span style="font-size:11px;color:rgba(240,240,240,0.35);margin-top:2px;">TRC-20 · ERC-20</span>
+          <div class="service-card" style="padding:32px 28px;justify-content:space-between;">
+            <div>
+              <span class="service-icon" style="font-size:28px;display:block;margin-bottom:10px;">₮</span>
+              <span class="service-name" style="font-size:18px;display:block;margin-bottom:10px;">Обмен USDT</span>
+              <div style="display:flex;flex-direction:column;gap:4px;">
+                <span class="service-tag" style="margin:0;">USDT → рубли</span>
+                <span class="service-tag" style="margin:0;">рубли → USDT</span>
+                <span style="font-size:11px;color:rgba(240,240,240,0.35);margin-top:2px;">TRC-20 · ERC-20</span>
+              </div>
             </div>
-            <div style="display:flex;flex-direction:column;gap:8px;margin-top:auto;">
+            <div style="display:flex;flex-direction:column;gap:8px;padding-top:20px;">
               <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс USDT</a>
             </div>
           </div>
 
           <!-- Другая крипта -->
-          <div class="service-card" style="padding:32px 28px;">
-            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px;">
-              <span style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.55);background:rgba(255,255,255,0.05);border-radius:6px;padding:3px 8px;">BTC</span>
-              <span style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.55);background:rgba(255,255,255,0.05);border-radius:6px;padding:3px 8px;">ETH</span>
-              <span style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.55);background:rgba(255,255,255,0.05);border-radius:6px;padding:3px 8px;">TON</span>
-              <span style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.55);background:rgba(255,255,255,0.05);border-radius:6px;padding:3px 8px;">SOL</span>
-              <span style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.55);background:rgba(255,255,255,0.05);border-radius:6px;padding:3px 8px;">XRP</span>
-              <span style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.35);background:rgba(255,255,255,0.03);border-radius:6px;padding:3px 8px;">+ещё</span>
+          <div class="service-card" style="padding:32px 28px;justify-content:space-between;">
+            <div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+                <span style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.55);background:rgba(255,255,255,0.05);border-radius:6px;padding:3px 8px;">BTC</span>
+                <span style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.55);background:rgba(255,255,255,0.05);border-radius:6px;padding:3px 8px;">ETH</span>
+                <span style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.55);background:rgba(255,255,255,0.05);border-radius:6px;padding:3px 8px;">TON</span>
+                <span style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.55);background:rgba(255,255,255,0.05);border-radius:6px;padding:3px 8px;">SOL</span>
+                <span style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.55);background:rgba(255,255,255,0.05);border-radius:6px;padding:3px 8px;">XRP</span>
+                <span style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:rgba(240,240,240,0.35);background:rgba(255,255,255,0.03);border-radius:6px;padding:3px 8px;">+ещё</span>
+              </div>
+              <span class="service-name" style="font-size:18px;display:block;margin-bottom:10px;">Другая криптовалюта</span>
+              <span class="service-tag">Bitcoin, Ethereum, TON, Solana и другие</span>
             </div>
-            <span class="service-name" style="font-size:18px;">Другая криптовалюта</span>
-            <span class="service-tag">Bitcoin, Ethereum, TON, Solana и другие</span>
-            <div style="display:flex;flex-direction:column;gap:8px;margin-top:auto;">
+            <div style="display:flex;flex-direction:column;gap:8px;padding-top:20px;">
               <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener">Узнать курс криптовалюты</a>
               <a href="https://t.me/atomexchange_manager" class="btn-ask-rate btn-ask-rate--sm" target="_blank" rel="noopener" style="background:rgba(91,138,255,0.1);border-color:rgba(91,138,255,0.3);color:#5b8aff;">Обменять криптовалюту</a>
             </div>
