@@ -159,24 +159,25 @@
 
     /* ПК (реальный viewport > 700px) */
     @media (min-width: 701px) {
-      /* Заголовок поверх гифки, по центру */
+      /* Заголовок НАД гифкой — обычный поток */
       .hero-title-main {
-        position: absolute !important;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -58%) !important;
-        z-index: 5; margin: 0 !important;
-        pointer-events: none; width: 100%; text-align: center;
+        position: static !important; transform: none !important;
+        text-align: center; margin-bottom: 16px !important;
       }
-      /* Чипы — по углам внизу гифки */
+      /* Верхние чипы: левый и правый угол */
+      .hero-chips-top {
+        position: absolute !important; z-index: 5;
+        top: 20px; left: 0; right: 0;
+        display: flex !important; justify-content: space-between !important;
+        flex-wrap: nowrap !important; padding: 0 28px !important;
+      }
+      /* Нижние чипы: space-between по всей ширине */
       .hero-chips {
         position: absolute !important; z-index: 5;
         bottom: 20px; left: 0; right: 0;
         display: flex !important; justify-content: space-between !important;
         align-items: flex-end !important; flex-wrap: nowrap !important;
         padding: 0 28px !important; gap: 0 !important;
-      }
-      .hero-chips-col {
-        display: flex !important; flex-direction: column !important; gap: 8px !important;
       }
     }
 
@@ -190,18 +191,23 @@
         margin-bottom: 12px !important;
         font-size: clamp(28px, 8vw, 40px) !important;
       }
-      /* Гифка — flex-column чтобы чипы можно было прижать вниз */
+      /* Гифка — flex-column чтобы чипы прижать вниз */
       .hero-panel {
         display: flex !important; flex-direction: column !important;
         padding: 24px 16px 20px !important; min-height: 220px !important;
       }
       .hero-badge { margin-bottom: auto !important; }
-      /* Чипы в нижней части гифки */
+      /* Верхние чипы на мобиле — обычный поток */
+      .hero-chips-top {
+        display: flex !important; flex-wrap: wrap !important;
+        justify-content: center !important; gap: 6px !important;
+        margin-bottom: 4px !important;
+      }
+      /* Нижние чипы на мобиле */
       .hero-chips {
         justify-content: center !important; flex-wrap: wrap !important;
         gap: 6px !important; padding: 0 !important;
       }
-      .hero-chips-col { display: contents !important; }
       /* Кнопки под гифкой — в строку */
       .hero-cta-below { flex-wrap: nowrap !important; gap: 10px !important; }
       .hero-cta-below .btn-primary,
@@ -301,17 +307,16 @@
               </span>
             </div>
 
-            <!-- Чипы: по углам на ПК, по центру на мобиле -->
+            <!-- Верхние угловые чипы (ПК: top-left/right, мобиле: поток) -->
+            <div class="hero-chips-top">
+              <span class="hero-chip">VIP-офисы: Уфа, Казань, Екб</span>
+              <span class="hero-chip">Живой менеджер</span>
+            </div>
+            <!-- Нижние чипы (ПК: bottom corners+center, мобиле: поток) -->
             <div class="hero-chips">
-              <div class="hero-chips-col">
-                <span class="hero-chip">VIP-офисы: Уфа, Казань, Екб</span>
-                <span class="hero-chip">Сделки от 100 USDT</span>
-              </div>
+              <span class="hero-chip">Сделки от 100 USDT</span>
               <span class="hero-chip">Фиксация курса на 3 часа</span>
-              <div class="hero-chips-col">
-                <span class="hero-chip">Живой менеджер</span>
-                <span class="hero-chip">Без лимита по сумме</span>
-              </div>
+              <span class="hero-chip">Без лимита по сумме</span>
             </div>
           </div>
 
