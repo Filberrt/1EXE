@@ -146,10 +146,70 @@
     }
   </style>
   <style>
-    /* hero-mobile-fix v8 */
-    @media (max-width: 768px) {
-      .hero { min-height: 0 !important; align-items: flex-start !important; padding-top: 96px !important; padding-bottom: 48px !important; }
-      .hero-panel { padding: 32px 20px 28px !important; }
+    /* hero-layout v1 */
+
+    /* Wrapper: position context для оверлея на ПК */
+    .hero-layout-wrap { position: relative; }
+
+    /* Кнопки под гифкой — оба устройства */
+    .hero-cta-below {
+      display: flex; gap: 12px; justify-content: center;
+      margin-top: 20px; flex-wrap: nowrap;
+    }
+
+    /* ПК (реальный viewport > 700px) */
+    @media (min-width: 701px) {
+      /* Заголовок поверх гифки, по центру */
+      .hero-title-main {
+        position: absolute !important;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -58%) !important;
+        z-index: 5; margin: 0 !important;
+        pointer-events: none; width: 100%; text-align: center;
+      }
+      /* Чипы — по углам внизу гифки */
+      .hero-chips {
+        position: absolute !important; z-index: 5;
+        bottom: 20px; left: 0; right: 0;
+        display: flex !important; justify-content: space-between !important;
+        align-items: flex-end !important; flex-wrap: nowrap !important;
+        padding: 0 28px !important; gap: 0 !important;
+      }
+      .hero-chips-col {
+        display: flex !important; flex-direction: column !important; gap: 8px !important;
+      }
+    }
+
+    /* Мобиле (viewport=500px → max-width:700px всегда срабатывает) */
+    @media (max-width: 700px) {
+      .hero { padding-top: 96px !important; padding-bottom: 24px !important; min-height: 0 !important; }
+      /* Заголовок над гифкой — обычный поток */
+      .hero-title-main {
+        display: block !important; position: static !important;
+        transform: none !important; text-align: center;
+        margin-bottom: 12px !important;
+        font-size: clamp(28px, 8vw, 40px) !important;
+      }
+      /* Гифка — flex-column чтобы чипы можно было прижать вниз */
+      .hero-panel {
+        display: flex !important; flex-direction: column !important;
+        padding: 24px 16px 20px !important; min-height: 220px !important;
+      }
+      .hero-badge { margin-bottom: auto !important; }
+      /* Чипы в нижней части гифки */
+      .hero-chips {
+        justify-content: center !important; flex-wrap: wrap !important;
+        gap: 6px !important; padding: 0 !important;
+      }
+      .hero-chips-col { display: contents !important; }
+      /* Кнопки под гифкой — в строку */
+      .hero-cta-below { flex-wrap: nowrap !important; gap: 10px !important; }
+      .hero-cta-below .btn-primary,
+      .hero-cta-below .btn-outline {
+        flex: 1 !important; min-width: 0 !important;
+        justify-content: center !important; text-align: center;
+        font-size: 14px !important; padding: 12px 10px !important;
+      }
     }
   </style>
 <style>/* btn-consult-link */
@@ -178,16 +238,16 @@
       </nav>
 
       <div class="header-actions">
+        <a href="https://t.me/atomexchange_manager" class="btn-tg" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
+          Написать
+        </a>
         <button class="btn-call call-trigger" aria-label="Позвонить менеджеру">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91A16 16 0 0015.1 17.9l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 18.92z"/>
           </svg>
           Позвонить
         </button>
-        <a href="https://t.me/atomexchange_manager" class="btn-tg" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
-          Написать
-        </a>
         <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -217,9 +277,17 @@
       </div>
 
       <div class="container">
+        <div class="hero-layout-wrap">
+
+          <!-- Заголовок: над гифкой на мобиле, оверлей на ПК -->
+          <h1 class="hero-title hero-title-main" id="hero-title">
+            АТОМ
+            <span style="display:block;font-size:0.38em;letter-spacing:10px;text-transform:uppercase;color:#5b8aff;font-weight:700;margin-top:6px;margin-bottom:8px;">КРИПТОБАНК</span>
+          </h1>
+
         <div class="hero-content hero-content-solo">
 
-          <!-- ─── LEFT PANEL: заголовок + чипы ─── -->
+          <!-- ─── PANEL: гифка + бейдж + чипы ─── -->
           <div class="hero-panel">
             <video class="hero-panel-video" autoplay muted loop playsinline aria-hidden="true">
               <source src="hero-v3.mp4" type="video/mp4">
@@ -233,21 +301,17 @@
               </span>
             </div>
 
-            <h1 class="hero-title" id="hero-title">
-              АТОМ
-              <span style="display:block;font-size:0.38em;letter-spacing:10px;text-transform:uppercase;color:#5b8aff;font-weight:700;margin-top:6px;margin-bottom:8px;">КРИПТОБАНК</span>
-            </h1>
-
+            <!-- Чипы: по углам на ПК, по центру на мобиле -->
             <div class="hero-chips">
-              <span class="hero-chip">VIP-офисы: Уфа, Казань, Екб</span>
-              <span class="hero-chip">Сделки от 100 USDT</span>
+              <div class="hero-chips-col">
+                <span class="hero-chip">VIP-офисы: Уфа, Казань, Екб</span>
+                <span class="hero-chip">Сделки от 100 USDT</span>
+              </div>
               <span class="hero-chip">Фиксация курса на 3 часа</span>
-              <span class="hero-chip">Живой менеджер</span>
-              <span class="hero-chip">Без лимита по сумме</span>
-            </div>
-            <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
-              <a href="https://t.me/atomexchange_manager" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a>
-              <button class="btn-outline call-trigger">Позвонить</button>
+              <div class="hero-chips-col">
+                <span class="hero-chip">Живой менеджер</span>
+                <span class="hero-chip">Без лимита по сумме</span>
+              </div>
             </div>
           </div>
 
@@ -367,6 +431,14 @@
           <!-- /widget -->
 
         </div>
+        </div><!-- /hero-layout-wrap -->
+
+        <!-- CTA кнопки под гифкой -->
+        <div class="hero-cta-below">
+          <a href="https://t.me/atomexchange_manager" class="btn-primary" target="_blank" rel="noopener">Написать в Telegram</a>
+          <button class="btn-outline call-trigger">Позвонить</button>
+        </div>
+
       </div>
     </section>
 
